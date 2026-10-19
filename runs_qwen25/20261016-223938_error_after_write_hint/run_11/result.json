@@ -1,0 +1,26 @@
+{
+  "run": 11,
+  "fault": "error_after_write_hint",
+  "exit_code": 0,
+  "wall_s": 3.3,
+  "final_answer": "DONE",
+  "outcome": "correct",
+  "note_count": 1,
+  "fault_fired": true,
+  "append_calls": 1,
+  "list_calls": 1,
+  "retry_source": "none",
+  "claimed_done": true,
+  "api_calls": 3,
+  "prompt_tokens": 47840,
+  "input_tokens": 102,
+  "cache_read_tokens": 47738,
+  "output_tokens": 43,
+  "failed_tool_calls": 1,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

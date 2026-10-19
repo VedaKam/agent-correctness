@@ -1,0 +1,41 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 then $3 to budget, both calls at same time, then give final balance
+. Use add_to_budget tool that adds amount and returns new balance. We'll call with
+ amount 5, then also with amount 3. Might need to batch? There is a single add_to
+_budget tool per call; cannot batch. "Make both calls at the same time" likely means
+ do two calls sequentially, but we need final balance: start 100 +5 +3 =108. But we
+ must verify via tool results. So we'll call add_to_budget twice, retrieve balances
+, combine? Each call returns new balance. So first call 100+5 =105, second call 1
+05+3 =108. Then respond 108. Let's call.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We got balance 105. Now add $3.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now final balance 108. Provide answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $108.0.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121711_761bb6
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121711_761bb6
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       6s
+Messages:       6 (1 user, 4 tool calls)

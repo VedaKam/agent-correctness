@@ -1,0 +1,29 @@
+{
+  "run": 3,
+  "scenario": "lost_update",
+  "fault": "atomic",
+  "exit_code": 0,
+  "wall_s": 9.1,
+  "final_answer": "Both $5 and $3 were added to your $100 budget, resulting in a final balance of $108.",
+  "outcome": "correct",
+  "valid": true,
+  "tiers": {
+    "output": true,
+    "process": true,
+    "state": true
+  },
+  "all_tiers_pass": true,
+  "output_only_pass": true,
+  "hidden_failure": false,
+  "misreport": false,
+  "all_requests_local": true,
+  "final_budget": 108.0,
+  "budget_calls": 2,
+  "ran_concurrently": false,
+  "api_calls": 2,
+  "prompt_tokens": 35959,
+  "input_tokens": 43,
+  "cache_read_tokens": 35916,
+  "output_tokens": 343,
+  "failed_tool_calls": 0
+}

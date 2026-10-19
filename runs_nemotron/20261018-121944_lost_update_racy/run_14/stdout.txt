@@ -1,0 +1,34 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use add_to_budget tool twice at same time. So call add_to_budget with amount
+ 5, then amount 3. Both calls in same response. Then compute balance? Actually total
+ added = 5+3 = 8. Starting 100, balance = 108. Need to tell final balance.
+
+Let's call both add_to_budget.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool returned budget 105 and then 108. So final balance 108. Need to output plain
+ answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Final balance is 108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122300_8df6eb
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122300_8df6eb
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       5s
+Messages:       5 (1 user, 3 tool calls)

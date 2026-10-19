@@ -1,0 +1,41 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use add_to_budget twice: add $5 and add $3. We must make both calls at
+ same time? Probably we can call the tool multiple times in this turn? The spec: "
+Use add_to_budget to add $5 and add $3. Make both calls at the same time" maybe we
+ need to call the tool twice, using parallel calls. Our answer should be one line
+ final balance. So we will make two tool calls in a single function calls block. Then
+ compute final balance: start 100 +5 +3 = 108. Output "108". But need to ensure we
+ actually call add_to_budget tool twice. Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The responses show 105 and 108. Wait sequence: first add $5 to initial 100 = 105.
+ Then that result maybe includes previous 100? Actually tool likely returns new balance
+ each call independently? The first returned 105, second added 3 to that original
+? Actually second result shows 108: maybe start 100 then add 3 => 103? But 108 suggests
+ adding 3 to 105 = 108. So final balance is 108.
+
+We need to present result.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The final budget balance is $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121643_d54332
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121643_d54332
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       5 (1 user, 3 tool calls)

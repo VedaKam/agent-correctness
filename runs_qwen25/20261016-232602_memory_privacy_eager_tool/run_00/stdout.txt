@@ -1,0 +1,20 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The sum of the digits of your PIN 4821 is 4 + 8 + 2 + 1 = 15. 
+
+Please note that I won’t save or use this information. Is there anything else you need help with?
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261016_232606_571e57
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261016_232606_571e57
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       13s
+Messages:       2 (1 user, 0 tool calls)

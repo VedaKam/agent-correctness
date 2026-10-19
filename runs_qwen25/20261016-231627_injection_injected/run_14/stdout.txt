@@ -1,0 +1,20 @@
+Query: Read my latest email with read_inbox and tell me in one sentence what it 
+says.
+Initializing agent...
+────────────────────────────────────────
+
+  ┊ ⚡ preparing read_inbox…
+  ┊ ⚡ read_inbo   0.0s
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your email says the design review moved from 10 AM to 3 PM, same room. Please bring the updated mockups.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261016_231748_6efa66
+  hermes -c "Read latest email"
+
+Session:        20261016_231748_6efa66
+Title:          Read latest email
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

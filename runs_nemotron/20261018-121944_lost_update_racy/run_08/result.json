@@ -1,0 +1,29 @@
+{
+  "run": 8,
+  "scenario": "lost_update",
+  "fault": "racy",
+  "exit_code": 0,
+  "wall_s": 9.8,
+  "final_answer": "The final balance is $108.",
+  "outcome": "correct",
+  "valid": true,
+  "tiers": {
+    "output": true,
+    "process": true,
+    "state": true
+  },
+  "all_tiers_pass": true,
+  "output_only_pass": true,
+  "hidden_failure": false,
+  "misreport": false,
+  "all_requests_local": true,
+  "final_budget": 108.0,
+  "budget_calls": 2,
+  "ran_concurrently": false,
+  "api_calls": 3,
+  "prompt_tokens": 54181,
+  "input_tokens": 70,
+  "cache_read_tokens": 54111,
+  "output_tokens": 370,
+  "failed_tool_calls": 0
+}

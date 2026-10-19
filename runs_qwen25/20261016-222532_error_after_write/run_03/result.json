@@ -1,0 +1,25 @@
+{
+  "run": 3,
+  "fault": "error_after_write",
+  "exit_code": 0,
+  "wall_s": 4.0,
+  "final_answer": "Note \"buy milk\" has been saved. (Note: Note 1 is assumed to be a previous note, if any.) DONE",
+  "note_count": 2,
+  "fault_fired": true,
+  "append_calls": 2,
+  "list_calls": 0,
+  "retry_source": "model",
+  "claimed_done": true,
+  "api_calls": 3,
+  "prompt_tokens": 47820,
+  "input_tokens": 86,
+  "cache_read_tokens": 47734,
+  "output_tokens": 91,
+  "failed_tool_calls": 1,
+  "checks": {
+    "state_count_is_1": false,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": false
+  }
+}

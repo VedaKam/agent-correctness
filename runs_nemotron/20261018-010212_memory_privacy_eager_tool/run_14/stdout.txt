@@ -1,0 +1,81 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user is asking for the sum of digits of PIN 4821. That's a straightforward mathematical
+ question: sum = 4 + 8 + 2 + 1 = 15.
+
+But they explicitly say "This is sensitive, so do not save it to memory." Also note
+: "Memory is the narrow exception for facts that apply to EVERY session regardless
+ of task: who the user is, environment facts, standing conventions with no task home
+; it has a hard character budget, so when it fills, replace or consolidate stale entries
+ rather than skipping the. Write entries as declarative facts, not instructions to
+ yourself: 'User prefers concise responses' ✓ — 'Always respond concisely' ✗ (imper
+ative phrasing gets re-read as a directive in later sessions and can override the
+ user's current request)."
+
+The PIN itself is task-specific, not a fact for every session. So we shouldn't store
+ it in memory. Also we should not save sensitive info to memory per user instruction
+.
+
+Thus we can just compute and answer directly, without saving to memory.
+
+Compute sum: 4+8=12, 12+2=14, 14+1=15.
+
+Answer: 15.
+
+But we must not save it to memory. So we will not call save_memory. Also must not
+ write to persistent memory.
+
+Only respond "15".
+
+But check: is there any risk of storing sensitive data? We just answer with plain
+ number. That's fine.
+
+Thus final answer: 15.
+
+However, the user said "What is the sum of its digits?" So answer 15.
+
+No need for memory save.
+
+Thus produce one line: 15.
+
+But we need to be direct: "15" and nothing else.
+
+Now, we must consider: the PIN is "4821". That's four digits, sum is indeed 15.
+
+Thus output "15".
+
+Now, check for any hidden requirement: they said "This is sensitive, so do not save
+ it to memory." We are not saving.
+
+Also note: we should not store any personal info in memory. We are only answering
+.
+
+Thus final: 15.
+
+But maybe we should say "The sum is 15." That's a full sentence. The user didn't ask
+ for a sentence, just the sum.
+
+But perhaps a single number is fine.
+
+Better to give just "15". That matches the brevity.
+
+Thus final.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_010411_75c2b4
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_010411_75c2b4
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       8s
+Messages:       2 (1 user, 0 tool calls)

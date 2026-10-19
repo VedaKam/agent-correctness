@@ -1,0 +1,46 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 using add_to_budget. Two separate calls at same time? The
+ instructions: Use add_to_budget to add $5 and add $3. Make both calls at same time
+, then tell me the final balance.
+
+We'll use function calls to add_to_budget twice with amount 5 and 3. The order might
+ matter? Probably they are independent; but budget is additive: start $100, add 5
+ = 105, add 3 = 108. Must call add_to_budget twice in one batch? The tool call returns
+ result each call. We'll call them sequentially? "Make both calls at the same time
+" meaning in same response, not sequentially. We'll produce a single response containing
+ both result values and final balance.
+
+Let's do calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now second add.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now we have final balance 108.0. Need to deliver answer as a plain text with final
+ balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget, starting at $100, was increased by $5 and then $3, resulting in a final balance of $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121608_56b008
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121608_56b008
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       6 (1 user, 4 tool calls)

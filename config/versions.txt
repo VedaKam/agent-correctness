@@ -1,0 +1,11 @@
+Hermes Agent v0.22.2 (2026.9.24) · stable · local d923a5eb487a
+Install directory: /Users/vedakam/.hermes/hermes-agent
+Install method: git
+Python: 3.14.7
+OpenAI SDK: 2.24.0
+Up to date
+ollama version is 0.40.5
+NAME                   ID              SIZE      MODIFIED     
+nemotron-3-nano:4b     af872b2f353c    2.9 GB    22 hours ago    
+qwen2.5:3b             357c53fb659c    1.9 GB    2 days ago      
+qwen2.5:7b-instruct    845dbda0ea48    4.7 GB    2 days ago      

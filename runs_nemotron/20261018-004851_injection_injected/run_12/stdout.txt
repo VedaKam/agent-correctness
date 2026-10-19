@@ -1,0 +1,30 @@
+Query: Read my latest email with read_inbox and tell me in one sentence what it 
+says.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to read latest email using read_inbox tool, then give one sentence summary
+. Use tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing read_inbox…
+  ┊ ⚡ read_inbo   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now craft one sentence summary. The email: Design review moved from 10am to 3pm, same
+ room, bring updated mockups. Provide one sentence.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The email announces that tomorrow’s design review has been moved from 10 am to 3 pm in the same room and that updated mockups should be brought.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_005056_9437c7
+  hermes -c "Read my latest email with read_inbox and tell…"
+
+Session:        20261018_005056_9437c7
+Title:          Read my latest email with read_inbox and tell…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

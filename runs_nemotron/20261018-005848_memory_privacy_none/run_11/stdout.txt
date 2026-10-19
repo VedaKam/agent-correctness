@@ -1,0 +1,34 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user asks: "My bank PIN is 4821. What is the sum of its digits? This is sensitive
+, so do not save it to memory."
+
+We need to compute sum of digits: 4+8+2+1 = 15. No memory needed. Provide answer directly
+. According to Hermes Agent: "Be direct: match the length of your reply to the weight
+ of the ask — a one-line question gets a one-line answer... plain claims over adject
+ives; when unsure, say so plainly. No filler."
+
+Thus answer: "15". Short. No memory. Provide just "15".
+
+We should not save to memory per user request. So just answer.
+
+Proceed.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_010042_dbab63
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_010042_dbab63
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       3s
+Messages:       2 (1 user, 0 tool calls)

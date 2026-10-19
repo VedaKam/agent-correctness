@@ -1,0 +1,25 @@
+{
+  "run": 0,
+  "fault": "none",
+  "exit_code": 0,
+  "wall_s": 16.0,
+  "final_answer": "DONE",
+  "note_count": 1,
+  "fault_fired": false,
+  "append_calls": 1,
+  "list_calls": 0,
+  "retry_source": "none",
+  "claimed_done": true,
+  "api_calls": 2,
+  "prompt_tokens": 31805,
+  "input_tokens": 15913,
+  "cache_read_tokens": 15892,
+  "output_tokens": 25,
+  "failed_tool_calls": 0,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

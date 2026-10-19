@@ -1,0 +1,27 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to answer the user's question: sum of digits of the PIN "4821". The PIN is
+ 4,8,2,1. Sum = 4+8+2+1 = 15. The user says "do not save it to memory" - that's a
+ note about memory, not the answer. I should provide the answer directly. The request
+ is a calculation, not about Hermes itself or needing tools. I'll just give the answer
+. No need for tool calls. Answer: 15. Also, the user said "do not save it to memory
+" - I won't use memory tool. So final response: 15.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_005950_a36bc4
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_005950_a36bc4
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       3s
+Messages:       2 (1 user, 0 tool calls)

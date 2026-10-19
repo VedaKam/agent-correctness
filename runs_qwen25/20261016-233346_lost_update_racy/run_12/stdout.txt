@@ -1,0 +1,21 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your final budget balance is $108.0.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261016_233514_122415
+  hermes -c "Simultaneous budget adjustments"
+
+Session:        20261016_233514_122415
+Title:          Simultaneous budget adjustments
+Duration:       3s
+Messages:       5 (1 user, 3 tool calls)

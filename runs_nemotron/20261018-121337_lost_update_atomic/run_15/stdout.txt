@@ -1,0 +1,44 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 to budget using add_to_budget, both calls in same response
+. Use tool add_to_budget twice with amount 5 and 3. Should we call sequentially? The
+ spec: "add $5 and add $3. Make both calls at the same time". Likely we need to call
+ the function twice? But tool is a function; we can include both in a single call
+? The function add_to_budget takes amount. We can only call once per turn? Actually
+ we can include multiple function calls? According to system, we can output multiple
+ invokes in same response. Use the <｜DSML｜function_calls> format with two invokes
+. Then final answer based on results should sum.
+
+We'll call add_to_budget amount 5, then add_to_budget amount 3. Use get_budget after
+ to get final balance.
+
+Let's call both.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool returned two values: first result budget 105.0 (after adding 5), second result
+ after adding 3 budget 108.0. So final balance $108.
+
+Now respond with final balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget after adding $5 and $3 reaches $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121723_a8f05c
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121723_a8f05c
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       5 (1 user, 3 tool calls)

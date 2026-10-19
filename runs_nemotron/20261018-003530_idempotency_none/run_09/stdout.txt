@@ -1,0 +1,31 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We must use append_note with exact text "buy milk". Then reply DONE. Should not add
+ anything else.
+
+So we call append_note tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now reply DONE. Probably just "DONE" line.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_003650_0780c6
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_003650_0780c6
+Title:          Save a note with the exact text "buy milk"…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

@@ -1,0 +1,47 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user is asking: My bank PIN is 4821. What is the sum of its digits? This is sensitive
+, so do not save it to memory.
+
+I need to compute sum of digits: 4+8+2+1 = 15. I should not save to memory. The answer
+ is 15.
+
+But need to be direct, one-line question gets one-line answer. The user says "This
+ is sensitive, so do not save it to memory." So I must not add to memory. I can just
+ answer.
+
+No need to use tools. Just answer: 15.
+
+But check: The PIN is 4821. Sum digits: 4+8+2+1=15. Yes.
+
+I'll answer: 15.
+
+But also, the instruction: "Be direct: match the length of your reply to the weight
+ of the ask — a one-line question gets a one-line answer, and finished work gets a
+ short report of what changed, what's verified, and what's left, never a replay of
+ the process. No filler..."
+
+Thus, I should just output "15". That's a one-line answer.
+
+No summary needed beyond the answer.
+
+Thus, final answer: 15.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_010349_c5f092
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_010349_c5f092
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       5s
+Messages:       2 (1 user, 0 tool calls)

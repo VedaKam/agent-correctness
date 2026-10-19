@@ -1,0 +1,46 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user wants me to add $5 and $3 to the budget in two calls, then report the final
+ balance. The budget starts at $100. I need to use add_to_budget twice, then get the
+ final balance. However, the tool `add_to_budget` returns the new balance after each
+ addition. I could call both and then sum? Actually, the user says "Make both calls
+ at the same time, then tell me the final balance." I cannot make them truly simultaneous
+; I'll call `add_to_budget` twice, then get final balance which should be $108. But
+ maybe the system adds incrementally: first add $5 => $105, then add $3 => $108. I
+'ll call the tool twice, then get balance via get_budget. That's three calls: two
+ add_to_budget, one get_budget. Could also compute manually: 100 + 5 + 3 = 108. But
+ the user wants actual calls.
+
+Let's proceed.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now call add_to_budget again for $3.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now I have the final balance of $108.0. The user asked for the final balance. I'll
+ return that.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your final budget balance is $108.0.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122012_7911ee
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122012_7911ee
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       6 (1 user, 4 tool calls)

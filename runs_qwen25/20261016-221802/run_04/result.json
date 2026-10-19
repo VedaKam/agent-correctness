@@ -1,0 +1,18 @@
+{
+  "run": 4,
+  "exit_code": 0,
+  "wall_s": 3.1,
+  "api_calls": 2,
+  "prompt_tokens": 31743,
+  "input_tokens": 36,
+  "cache_read_tokens": 31707,
+  "output_tokens": 25,
+  "failed_tool_calls": 0,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "one_tool_invocation": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

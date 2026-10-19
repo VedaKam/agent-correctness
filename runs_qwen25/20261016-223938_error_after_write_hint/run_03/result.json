@@ -1,0 +1,26 @@
+{
+  "run": 3,
+  "fault": "error_after_write_hint",
+  "exit_code": 0,
+  "wall_s": 3.3,
+  "final_answer": "The note \"buy milk\" may or may not have been saved. Please check the notes using the list_notes command and provide the output.",
+  "outcome": "hedged",
+  "note_count": 1,
+  "fault_fired": true,
+  "append_calls": 1,
+  "list_calls": 0,
+  "retry_source": "none",
+  "claimed_done": false,
+  "api_calls": 2,
+  "prompt_tokens": 31846,
+  "input_tokens": 77,
+  "cache_read_tokens": 31769,
+  "output_tokens": 54,
+  "failed_tool_calls": 1,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

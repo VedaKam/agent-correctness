@@ -1,0 +1,31 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to use the append_note tool to save a note with "buy milk" and then reply D
+ONE. Let me do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The append_note call failed with a timeout. The note may or may not have been saved
+. I should not reply DONE since the task failed. I need to inform the user of the
+ failure.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The append_note tool timed out while trying to save the note "buy milk". The operation may or may not have succeeded.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_003935_9b0073
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_003935_9b0073
+Title:          Save a note with the exact text "buy milk"…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

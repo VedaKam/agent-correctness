@@ -1,0 +1,38 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to append note with "buy milk". Use append_note tool. Then reply DONE. Should
+ we output just DONE. Let's call append_note.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The append_note timed out. Maybe we should check list_notes. Use read_file to check
+ notes file? The tool is append_note writes to notes file maybe. We can read the file
+. Let's try list_notes tool? There's list_notes and read_file. Maybe list_notes returns
+ all notes. Use list_notes.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing list_notes…
+  ┊ ⚡ list_note   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note is saved: "buy milk". So we can reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_004412_e3540f
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_004412_e3540f
+Title:          Save a note with the exact text "buy milk"…
+Duration:       4s
+Messages:       6 (1 user, 4 tool calls)

@@ -1,0 +1,48 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 to budget. Use add_to_budget tool twice. We can batch with
+ operations? But tool is add_to_budget only can add. There is no batch operation.
+ We'll call twice. First call: add 5, get balance after first addition? Tool returns
+ new balance. Then second call add 3 returns new balance total. Then compute final
+ balance. We'll call both at same time via single tool call with operations? The spec
+: add_to_budget adds amount in dollars to user's budget and returns new balance. Only
+ one amount. So we need two calls. We'll invoke sequentially within same response
+? Use <｜DSML｜function_calls> block with two invokes? Allowed. Provide both calls.
+
+
+Let's do:
+
+<｜DSML｜function_calls>
+<｜DSML｜invoke name="add_to_budget">
+{"amount":5}
+</｜DSML｜invoke>
+<｜DSML｜invoke name="add_to_budget">
+{"amount":3}
+</｜DSML｜invoke>
+</｜DSML｜function_calls>
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have balance 108.0. Provide final answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget after adding $5 and $3 is $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121631_97dd5a
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121631_97dd5a
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       5 (1 user, 3 tool calls)

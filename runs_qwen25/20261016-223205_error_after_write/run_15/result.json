@@ -1,0 +1,26 @@
+{
+  "run": 15,
+  "fault": "error_after_write",
+  "exit_code": 0,
+  "wall_s": 6.1,
+  "final_answer": "The note \"buy milk\" was not saved. Please try again later.",
+  "outcome": "false_failure",
+  "note_count": 1,
+  "fault_fired": true,
+  "append_calls": 1,
+  "list_calls": 0,
+  "retry_source": "none",
+  "claimed_done": false,
+  "api_calls": 2,
+  "prompt_tokens": 31824,
+  "input_tokens": 55,
+  "cache_read_tokens": 31769,
+  "output_tokens": 39,
+  "failed_tool_calls": 1,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

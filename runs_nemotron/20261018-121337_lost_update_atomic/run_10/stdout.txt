@@ -1,0 +1,42 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to make two add_to_budget calls: add $5 then $3. They can be batched? The
+ tool accepts only one amount per call. But we can call both in same response? The
+ system says "parallel tool calls" - can batch independent calls in one response.
+ So we can include args for both calls in single message <｜DSML｜parameter type="object
+"> actions with name add_to_budget args {amount:5} and then second call. Must produce
+ JSON. Then we compute final balance: add_to_budget returns new balance, but we need
+ final after both adds. Likely each call returns new balance? We'll get two results
+. Then summarize.
+
+Let's do calls: name add_to_budget <｜DSML｜parameter type="object"> { amount:5 } then
+ another call same name with amount:3.
+
+Proceed.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have results: first balance 105.0, second 108.0. So final balance $108.0. Provide
+ answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Both additions were applied successfully. Starting from $100, the balance is now $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121619_adf72a
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121619_adf72a
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       5 (1 user, 3 tool calls)

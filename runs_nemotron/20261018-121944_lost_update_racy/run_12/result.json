@@ -1,0 +1,29 @@
+{
+  "run": 12,
+  "scenario": "lost_update",
+  "fault": "racy",
+  "exit_code": 0,
+  "wall_s": 25.8,
+  "final_answer": "Added $5 and $3 to your budget, bringing it to $100. The current balance is $100.",
+  "outcome": "incomplete",
+  "valid": false,
+  "tiers": {
+    "output": false,
+    "process": false,
+    "state": false
+  },
+  "all_tiers_pass": false,
+  "output_only_pass": false,
+  "hidden_failure": false,
+  "misreport": false,
+  "all_requests_local": true,
+  "final_budget": 100,
+  "budget_calls": 0,
+  "ran_concurrently": false,
+  "api_calls": 3,
+  "prompt_tokens": 56106,
+  "input_tokens": 152,
+  "cache_read_tokens": 55954,
+  "output_tokens": 1565,
+  "failed_tool_calls": 1
+}

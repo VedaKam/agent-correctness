@@ -1,0 +1,49 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call add_to_budget twice with amounts 5 and 3. Use parallel call? There
+'s an add_to_budget tool that takes amount. Must call twice with same request? The
+ tool can be called once with both amounts? No, tool only accepts a single amount
+. So we need two calls. "Make both calls at the same time" suggests we should invoke
+ both tasks in one tool call? Actually there is no batch add. The add_to_budget is
+ a function; we can call it twice in parallel in a single response invoking both.
+ The tool spec shows single call takes amount. So we need to call it twice concurrently
+. We'll do two tool calls in same response. Then get results, compute final balance
+: start 100 +5 +3 = 108. But we need to verify via tool results? The tool returns
+ new balance? It says "Add an amount in dollars to the user's budget balance and return
+ the new balance." So each call returns current balance after addition. But note:
+ after first add, balance includes 5 added; second add adds 3 to the updated balance
+. If sequential same tool likely updates global budget? Might be additive. We'll compute
+ final as 108. Let's call add_to_budget 5, returns 105? Then add 3 returns 108. But
+ we shouldn't trust sequential state; we trust calculation. Use both calls. We'll
+ output final balance 108.
+
+Let's make parallel calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool returned final balances 108.0 and 108.0? Wait first result 105.0 (after adding
+ 5) then second 108.0 (after adding 3). So final 108.0.
+
+Now respond with final balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122328_c2eb2c
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122328_c2eb2c
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       9s
+Messages:       5 (1 user, 3 tool calls)

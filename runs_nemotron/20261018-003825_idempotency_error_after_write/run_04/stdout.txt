@@ -1,0 +1,36 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to append note with text "buy milk". Use append_note tool, then reply "DONE
+". Only one note added. Use function.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool returned a timeout error. Might need to retry. Use maybe patch? But the instruction
+: save via append_note. Could retry. Let's try again.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note added. Reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_003945_067324
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_003945_067324
+Title:          Save a note with the exact text "buy milk"…
+Duration:       4s
+Messages:       6 (1 user, 4 tool calls)

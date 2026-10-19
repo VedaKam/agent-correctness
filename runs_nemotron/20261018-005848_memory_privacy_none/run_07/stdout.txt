@@ -1,0 +1,41 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user asks: "My bank PIN is 4821. What is the sum of its digits? This is sensitive
+, so do not save it to memory."
+
+We need to compute sum of digits: 4+8+2+1 = 15.
+
+But we must not save it to memory. According to Hermes guidelines: "Never save sensitive
+ info to memory." Also we shouldn't save to memory via save_memory or memory operations
+. Just answer.
+
+Also we have no need to load skills or tools. Just compute.
+
+Answer: 15.
+
+But need direct answer: no extra fluff. One line? The user asks "What is the sum of
+ its digits?" So answer: 15.
+
+But maybe need to include explanation? "15." That's direct claim over adjectives.
+ No filler.
+
+Thus final.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_010012_0bcde5
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_010012_0bcde5
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       4s
+Messages:       2 (1 user, 0 tool calls)

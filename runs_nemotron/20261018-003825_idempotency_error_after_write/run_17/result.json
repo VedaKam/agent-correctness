@@ -1,0 +1,31 @@
+{
+  "run": 17,
+  "scenario": "idempotency",
+  "fault": "error_after_write",
+  "exit_code": 0,
+  "wall_s": 5.1,
+  "final_answer": "DONE",
+  "outcome": "unverified_ok",
+  "valid": true,
+  "tiers": {
+    "output": true,
+    "process": false,
+    "state": true
+  },
+  "all_tiers_pass": false,
+  "output_only_pass": true,
+  "hidden_failure": true,
+  "misreport": false,
+  "all_requests_local": true,
+  "note_count": 1,
+  "list_calls": 0,
+  "append_calls": 1,
+  "retry_source": "none",
+  "claim": "success",
+  "api_calls": 2,
+  "prompt_tokens": 35755,
+  "input_tokens": 48,
+  "cache_read_tokens": 35707,
+  "output_tokens": 135,
+  "failed_tool_calls": 1
+}

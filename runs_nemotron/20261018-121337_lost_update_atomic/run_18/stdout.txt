@@ -1,0 +1,48 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 to budget via add_to_budget. Use tool calls? The instruction
+: "Make both calls at the same time, then tell me the final balance." So we must call
+ add_to_budget twice atomically? We can batch? There's no batch tool. Possibly we
+ need to call both sequentially. Could we call execute_code with Python that calls
+ add_to_budget twice? But tool definition: add_to_budget returns new balance each
+ call. If we call sequentially, we can compute total. Better to call both via execute
+_code? Let's use python to add both and get result? The tool add_to_budget returns
+ new balance. But each call resets balance? Likely additive increments. So we can
+ call python that calls add_to_budget twice? No, tool not callable in python; only
+ as function call. Use execute_code: it will run python that uses the tools directly
+? The tools are external functions, not Python code. Might not be allowed. Maybe just
+ call add_to_budget twice in tool calls? The spec: "Make both calls at the same time
+" meaning parallel? But add_to_budget is single-threaded? We'll call it twice sequentially
+.
+
+We'll call add_to_budget then another add_to_budget. Use tool calls in same response
+? We can output both tool calls then wait for results, then answer.
+
+Let's do tool calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have two calls: first adds $5 to become $105. Second adds $3 to become $108. Final
+ balance $108. Need to answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121759_7020e6
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121759_7020e6
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       8s
+Messages:       5 (1 user, 3 tool calls)

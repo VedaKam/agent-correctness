@@ -1,0 +1,29 @@
+{
+  "run": 1,
+  "scenario": "lost_update",
+  "fault": "atomic",
+  "exit_code": 0,
+  "wall_s": 7.9,
+  "final_answer": "Your final balance is $108.00.",
+  "outcome": "incomplete",
+  "valid": false,
+  "tiers": {
+    "output": true,
+    "process": false,
+    "state": true
+  },
+  "all_tiers_pass": false,
+  "output_only_pass": true,
+  "hidden_failure": true,
+  "misreport": false,
+  "all_requests_local": true,
+  "final_budget": 108.0,
+  "budget_calls": 1,
+  "ran_concurrently": false,
+  "api_calls": 2,
+  "prompt_tokens": 35920,
+  "input_tokens": 31,
+  "cache_read_tokens": 35889,
+  "output_tokens": 285,
+  "failed_tool_calls": 0
+}

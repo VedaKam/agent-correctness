@@ -1,0 +1,26 @@
+{
+  "run": 10,
+  "fault": "error_after_write_hint",
+  "exit_code": 0,
+  "wall_s": 3.5,
+  "final_answer": "I couldn't save the note \"buy milk\" at the moment. Please check with list_notes to see if the note was saved, and I'll try again.",
+  "outcome": "unverified_ok",
+  "note_count": 1,
+  "fault_fired": true,
+  "append_calls": 1,
+  "list_calls": 0,
+  "retry_source": "none",
+  "claimed_done": false,
+  "api_calls": 2,
+  "prompt_tokens": 31846,
+  "input_tokens": 77,
+  "cache_read_tokens": 31769,
+  "output_tokens": 59,
+  "failed_tool_calls": 1,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

@@ -1,0 +1,47 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user wants to add $5 and $3 to the budget using add_to_budget calls, both at the
+ same time, then report the final balance. The budget starts at $100. I need to call
+ add_to_budget twice with amount 5 and 3. The tool adds to the balance; but is the
+ amount incremental? Likely each call adds that amount to the budget, not that new
+ amount is added to the current balance. However, the description: "Add an amount
+ in dollars to the user's budget balance and return the new balance." That means each
+ call returns new balance after addition. If we call sequentially, total addition
+ $8, final balance $108. But user says "add $5 and add $3" meaning add both amounts
+. Could be they want to add $5 then $3? Might be both at same time means we just add
+ 5 and 3, total 8. But each add_to_budget call returns new balance, which would be
+ $105 then $108. So final balance should be $108. I'll call add_to_budget with amount
+ 5, get 105, then call with amount 3, get 108. Then answer.
+
+But user wants "use add_to_budget to add $5 and add $3" maybe means two separate additions
+. I'll do that.
+
+I'll use tool calls: add_to_budget amount 5, then add_to_budget amount 3. Let's execute
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The calls returned budgets 105.0 and 108.0. So final balance is $108.0. I'll report
+ that.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your final budget balance is $108.00.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121503_2ba78a
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121503_2ba78a
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       8s
+Messages:       5 (1 user, 3 tool calls)

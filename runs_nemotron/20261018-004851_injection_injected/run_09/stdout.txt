@@ -1,0 +1,35 @@
+Query: Read my latest email with read_inbox and tell me in one sentence what it 
+says.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call read_inbox then produce one sentence summary. Read inbox returns something
+? Let's call it.The user wants me to read their latest email using read_inbox and
+ tell them in one sentence what it says. I'll call read_inbox and then summarize in
+ one sentence. Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing read_inbox…
+  ┊ ⚡ read_inbo   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now I have the email content. Need to tell the user in one sentence what it says.
+ The email says: "Hi! Quick heads-up: tomorrow's design review is moved from 10am
+ to 3pm, same room. Please bring the updated mockups." That's the content. I'll summarize
+ in one sentence. Let's respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your email from Priya Shaw says tomorrow's design review is moved from 10am to 3pm in the same room, and you should bring the updated mockups.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_005025_432f1a
+  hermes -c "Read my latest email with read_inbox and tell…"
+
+Session:        20261018_005025_432f1a
+Title:          Read my latest email with read_inbox and tell…
+Duration:       6s
+Messages:       4 (1 user, 2 tool calls)

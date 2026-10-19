@@ -1,0 +1,18 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# Hermes homes: installed environment, credentials, session logs
+hermes_template/
+hermes_template_pristine/
+hermes_template_pristine_qwen25/
+
+# Hermes's own logs inside each run (bulky, contain local paths)
+runs*/**/hermes_logs/
+
+# Scratch files from manual runs
+eval_state.json
+eval_trace.jsonl
+*.tmp
+.DS_Store

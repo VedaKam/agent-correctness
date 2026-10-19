@@ -1,0 +1,20 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Request to save the note timed out. It is possible the note "buy milk" was saved, but there was a delay or other issue. Do let me know if you need to save another note. For now, the note saving attempt failed.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261016_223249_ba1b2d
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261016_223249_ba1b2d
+Title:          Save a note with the exact text "buy milk"…
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

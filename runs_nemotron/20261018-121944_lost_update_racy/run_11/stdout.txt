@@ -1,0 +1,56 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 via add_to_budget. Two calls can be made at same time? Probably
+ we can issue both tool calls in a single response? The user wants both calls at same
+ time, then final balance. We'll call add_to_budget twice with amounts 5 and 3. Then
+ get balance maybe via get_budget? There's get_budget tool to return balance. Use
+ that. So we need to call add_to_budget twice (maybe in same tool_call block). Let
+'s do that.
+
+We'll create a single response with two add_to_budget calls.
+
+After that, we need to call get_budget to get final balance.
+
+Then respond with final balance.
+
+Let's do tool calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We received two responses: first gives "budget": 105.0, second "budget": 108.0. Actually
+ each add returns the new balance. So final balance is 108.0. Let's confirm via get
+_budget? Probably we can just calculate. But we should maybe call get_budget to fetch
+ again? However balance after two adds is 108. Let's also call get_budget to be safe
+.
+{"action":"add_to_budget","amount":0}? That seems not valid. get_budget just returns
+ balance.
+
+Call get_budget.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now final answer: The final balance is $108. Return as requested.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The final balance is $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122209_3f42c5
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122209_3f42c5
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       8s
+Messages:       7 (1 user, 5 tool calls)

@@ -1,0 +1,11 @@
+name: eval_harness
+version: 0.3.0
+description: CS 6158 mock tools, fault injection and trace hooks for a scenario-based agent test suite
+# Tools are registered per scenario (EVAL_SCENARIO); the default scenario is idempotency.
+provides_tools:
+  - append_note
+  - list_notes
+provides_hooks:
+  - post_tool_call
+  - post_api_request
+  - api_request_error

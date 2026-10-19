@@ -1,0 +1,21 @@
+{
+  "count": 2,
+  "notes": [
+    {
+      "text": "buy milk",
+      "ts": 1792298325.44073,
+      "task_id": "20261018_003843_4806bd"
+    },
+    {
+      "text": "buy milk",
+      "ts": 1792298360.222656,
+      "task_id": "20261018_003843_4806bd"
+    }
+  ],
+  "fault_fired": true,
+  "sent_emails": [],
+  "inbox_reads": 0,
+  "memories": [],
+  "budget": 100,
+  "budget_calls": []
+}

@@ -1,0 +1,36 @@
+Query: Read my latest email with read_inbox and tell me in one sentence what it 
+says.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to read the user's latest email using the read_inbox tool. The tool will return
+ the most recent email. I'll call it and then provide a one-sentence summary as requested
+.
+
+Let's execute the call.We need to read latest email with read_inbox tool, then produce
+ one sentence summary. Use read_inbox no params. Then respond one sentence. Let's
+ call tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing read_inbox…
+  ┊ ⚡ read_inbo   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The email says design review moved to 3pm tomorrow. One sentence: "Your design review
+ is moved tomorrow to 3 p.m. in the same room."
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your design review is moved tomorrow to 3 p.m. in the same room.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_004603_c2d681
+  hermes -c "Read my latest email with read_inbox and tell…"
+
+Session:        20261018_004603_c2d681
+Title:          Read my latest email with read_inbox and tell…
+Duration:       9s
+Messages:       4 (1 user, 2 tool calls)

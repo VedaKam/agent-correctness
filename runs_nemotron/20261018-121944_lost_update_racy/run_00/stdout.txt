@@ -1,0 +1,37 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call add_to_budget twice for +5, +3. But we cannot call two tools in same
+ response? The instruction says "Make both calls at the same time". That's a single
+ multi-tool call? The system says we can batch independent tool calls in parallel
+. So we can call both add_to_budget concurrently.
+
+We need to produce a single response containing both tool calls in one XML? Or we
+ output tool calls in one block? The system expects each tool call in its own
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now need final report. The two calls gave balances? The results show "budget": 10
+5.0 and "budget": 108.0. That implies each call returns new balance. Starting 100
+, after +5 = 105, then +3 = 108. Final balance is 108. Provide answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget went from $100 to $105 after adding $5, then to $108 after adding $3. The final balance is $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121948_679e50
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121948_679e50
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       8s
+Messages:       5 (1 user, 3 tool calls)

@@ -1,0 +1,20 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The sum of the digits of your PIN is 4 + 8 + 2 + 1, which equals 15. Here’s the calculation:
+
+1. Sum of digits: 4 + 8 + 2 + 1 = 15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261016_232748_144c91
+  hermes -c "Calculate PIN digits sum"
+
+Session:        20261016_232748_144c91
+Title:          Calculate PIN digits sum
+Duration:       2s
+Messages:       2 (1 user, 0 tool calls)

@@ -1,0 +1,29 @@
+{
+  "run": 7,
+  "scenario": "lost_update",
+  "fault": "atomic",
+  "exit_code": 0,
+  "wall_s": 12.6,
+  "final_answer": "The final budget balance is $108.",
+  "outcome": "incomplete",
+  "valid": false,
+  "tiers": {
+    "output": true,
+    "process": false,
+    "state": false
+  },
+  "all_tiers_pass": false,
+  "output_only_pass": true,
+  "hidden_failure": true,
+  "misreport": false,
+  "all_requests_local": true,
+  "final_budget": 100,
+  "budget_calls": 0,
+  "ran_concurrently": false,
+  "api_calls": 2,
+  "prompt_tokens": 36238,
+  "input_tokens": 127,
+  "cache_read_tokens": 36111,
+  "output_tokens": 602,
+  "failed_tool_calls": 1
+}

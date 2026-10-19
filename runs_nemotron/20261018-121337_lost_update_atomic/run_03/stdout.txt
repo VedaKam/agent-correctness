@@ -1,0 +1,46 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 to the budget using add_to_budget. We need to make both calls
+ at the same time (i.e., in parallel). The tool calls are parallel? According to spec
+, we can batch independent calls. But each add_to_budget call returns new balance
+? Actually each add_to_budget adds amount and returns new balance. If we add sequentially
+, starting at $100, after +5 = $105, after +3 = $108. But do we need to reflect final
+ balance $108.
+
+Better: maybe the system expects we call add_to_budget twice? "Make both calls at
+ the same time" meaning parallel. Each call independent, they both add to same account
+, final balance $108.
+
+We need to call add_to_budget with amount 5, and add_to_budget with amount 3. Use
+ concurrent calls.
+
+We'll invoke both. Then compute final balance: 100 + 5 + 3 = 108.
+
+Let's issue calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool returned final balances 105.0 and 108.0. So final balance is 108.0. We'll
+ answer: final balance $108.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Both $5 and $3 were added to your $100 budget, resulting in a final balance of $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121450_b6171c
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121450_b6171c
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       7s
+Messages:       5 (1 user, 3 tool calls)

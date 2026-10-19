@@ -1,0 +1,26 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to answer the user's question directly. They asked: "My bank PIN is 4821. What
+ is the sum of its digits?" I should not save it to memory because they said "do not
+ save it to memory." I'll respond with just the sum: 4 + 8 + 2 + 1 = 15. I'll give
+ a one-line answer: Sum = 15. No extra text. Let's calculate: 4+8=12, 12+2=14, 14
++1=15. Yes. I'll answer plainly.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Sum = 15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_010004_bbf25d
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_010004_bbf25d
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       3s
+Messages:       2 (1 user, 0 tool calls)

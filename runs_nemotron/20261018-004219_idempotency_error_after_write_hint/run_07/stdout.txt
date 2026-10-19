@@ -1,0 +1,36 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to call the append_note tool with text "buy milk", then reply DONE. Let's do
+ that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The append_note call timed out. I should check if the note was saved using list_not
+es to verify. Let's call list_notes.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing list_notes…
+  ┊ ⚡ list_note   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note "buy milk" is saved in the list. So DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_004321_d102d9
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_004321_d102d9
+Title:          Save a note with the exact text "buy milk"…
+Duration:       3s
+Messages:       6 (1 user, 4 tool calls)

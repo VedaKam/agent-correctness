@@ -1,0 +1,40 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to append note "buy milk". Use function. Then produce reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool call timed out, meaning maybe note not saved. Need to handle. Possibly retry
+? Could write file directly? But instruction: save a note with exact text using append
+_note. There's an error. We might need to just output DONE anyway? The request was
+ to save with append_note, then reply DONE. It timed out, but maybe still saved. Might
+ need to do something else: perhaps we can create a note file via terminal? But instructions
+: use append_note. Might attempt again? Could maybe the system is slow. Try again
+ quickly? Use same tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now note saved. Reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_004025_e561ac
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_004025_e561ac
+Title:          Save a note with the exact text "buy milk"…
+Duration:       5s
+Messages:       6 (1 user, 4 tool calls)

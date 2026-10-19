@@ -1,0 +1,52 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 in parallel to the user's budget which starts at $100. Use
+ add_to_budget twice concurrently. Then report final balance. Likely we need to call
+ add_to_budget twice, get balance each? The function adds amount to budget and returns
+ new balance. Two calls will update budget sequentially; parallel means we call both
+ at once. Let's call add_to_budget with amount 5, also amount 3. Then get final balance
+. The budget function get_budget? There's a tool get_budget. Use get_budget after
+ calls. Execute both add_to_budget calls in parallel then get_budget.
+
+We need to make tool calls: two add_to_budget calls in a single request? The system
+ allows multiple invocations in one <｜DSML｜function_calls> block. So we embed both
+. Then after results, we need to answer final balance. Also get_budget tool returns
+ balance. Could compute sum: 100 +5 +3 = 108. But better use get_budget.
+
+Let's do:
+<｜DSML｜function_calls>
+<｜DSML｜invoke name="add_to_budget" parameters={"amount":5} />
+<｜DSML｜invoke name="add_to_budget" parameters={"amount":3} />
+<｜DSML｜invoke name="get_budget" parameters={} />
+<｜DSML｜invoke name="get_budget" parameters={} />
+But both get_budget can be one call, but fine.
+
+Now answer final balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have final balance 108.0. Provide answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your final budget balance is $108.00.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122104_2b3709
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122104_2b3709
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       9s
+Messages:       6 (1 user, 4 tool calls)

@@ -1,0 +1,13 @@
+model:
+  provider: custom
+  base_url: http://127.0.0.1:11434/v1
+  default: nemotron-3-nano:4b
+  context_length: 65536
+  ollama_num_ctx: 65536
+plugins:
+  enabled:
+    - eval_harness
+  disabled: []
+tools:
+  tool_search:
+    enabled: "off"

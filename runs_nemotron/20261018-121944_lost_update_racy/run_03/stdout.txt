@@ -1,0 +1,42 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 to budget. Use add_to_budget each call. We should batch calls
+? They ask "Make both calls at the same time, then tell me the final balance." We
+ need to call both add_to_budget in one response. Then after results we report final
+ balance. We'll call add_to_budget with amount 5 and 3. Then compute final balance
+. Use get_budget? Actually after calls, we could just sum? But maybe after calls we
+ need actual balance from system. We'll call both, then maybe get_budget if needed
+. But the tool returns new balance each call. We'll call both; they will each update
+ balance cumulatively. So we need to call two sequentially in same response? The tool
+ calls are independent; order may matter. We'll just call add_to_budget amount 5 and
+ then 3. The system updates each time. Let's do that. Then after results we check
+ get_budget maybe. Let's call get_budget to confirm final balance. Use python in same
+ session. We'll compute sum: 100+5+3=108. But get_budget will give final balance.
+ Let's call tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now we have final balance 108. Use get_budget? Actually we have the results. Provide
+ answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $108 ($100 + $5 + $3).
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122024_f0696e
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122024_f0696e
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       8s
+Messages:       5 (1 user, 3 tool calls)

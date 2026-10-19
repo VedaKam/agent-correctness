@@ -1,0 +1,36 @@
+Query: Save a note with the exact text "buy milk" using the append_note tool, 
+then reply DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use append_note with text "buy milk". Then output DONE.
+
+Let's call append_note.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note service timed out. Need to check if saved. Use list_notes.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing list_notes…
+  ┊ ⚡ list_note   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note was saved. Reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_004439_93eadc
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261018_004439_93eadc
+Title:          Save a note with the exact text "buy milk"…
+Duration:       3s
+Messages:       6 (1 user, 4 tool calls)

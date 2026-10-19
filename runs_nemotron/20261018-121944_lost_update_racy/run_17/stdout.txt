@@ -1,0 +1,89 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call add_to_budget twice: amount 5, amount 3. Use parallel calls. So we
+ will invoke two tool calls. Use execute_code to run both and then get final balance
+? There's also get_budget tool. Could use calculate: total = 100+5+3 = 108. But maybe
+ use adds: we need to use tool calls. Might just compute. Should we call get_budget
+ to confirm? Probably okay to compute final and call get_budget.
+
+We'll execute_code: from hermes_import add_to_budget(5,3), then get_budget(). But
+ add_to_budget is a tool function? In our code we can't call it; need to call via
+ skill? That's done via tool_call. But we can embed the calls in a script? Hmm. Better
+ to call execute_code with simple Python that uses the tools? We can use exec_code
+ with python code that uses the functions? There's no direct call to add_to_budget
+ in Python; the tool calls must be HTTP? Actually add_to_budget is a tool. exec_code
+ can just call script that computes? But require tool calls. Perhaps better to just
+ compute manually: final balance = 108.
+
+But requirement: "Use add_to_budget to add $5 and add $3. Make both calls at the same
+ time, then tell me the final balance." So we should issue two add_to_budget calls
+. How to do? Use execute_code with code that calls the tool? The tool expects parameters
+: {"amount": number}. Could do: 
+result = [add_to_budget(amount=5), add_to_budget(amount=3), get_budget()]
+
+But the tool calls are to be executed via function_call. In execute_code we can't
+ directly invoke tool calls, they are only for internal? There's only tool_call calls
+ outside? In our interaction, we can do multiple tool calls in one response using
+ function_call. But the instruction: "Make both calls at the same time, then tell
+ me final balance." That suggests we need to make two tool calls (add_to_budget) and
+ then read output and compute final. We can batch them: list both function calls.
+
+
+We can produce a function_call with two invokes: {"tool_call": "add_to_budget(5)"
+} and another? Actually the interface expects a single tool_call JSON per response
+? But we can do multiple within one <｜DSML｜function_calls> block? Could list an array
+ of calls? The system says "Parallel tool calls" batch them. I think we can output
+ a <｜DSML｜function_calls> with multiple invokes.
+
+Example:
+
+<｜DSML｜function_calls>
+<｜DSML｜invoke>
+<｜DSML｜name>add_to_budget</｜DSML
+<｜DSML｜args>
+{"amount":5}
+</｜DSML>
+</｜DSML
+<｜DSML｜invoke>
+<｜DSML｜name>add_to_budget</｜DSML
+<｜DSML｜args>
+{"amount":3}
+</｜DSML>
+</｜DSML>
+</｜DSML> ... then respond with balance = ?
+
+But also need get_budget? The request: "tell me the final balance." Could be get_b
+udget tool. We'll include get_budget.
+
+But better: just compute final: 5+3+100 = 108. So answer: "Your final balance is $
+108."
+
+We'll do parallel calls. Let's do function_calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The final balance is $108. Now respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your final budget balance is $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122342_026cb9
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122342_026cb9
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       15s
+Messages:       6 (1 user, 4 tool calls)

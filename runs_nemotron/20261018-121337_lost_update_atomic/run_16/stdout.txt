@@ -1,0 +1,40 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call add_to_budget twice, but must do both calls at same time? The system
+ likely supports parallel calls? The tools list includes add_to_budget, and we can
+ batch? The function add_to_budget returns new balance. But adding both amounts individually
+ would require sequential calls unless we can compute total +100 => 105+3 => 108.
+ However requirement "Make both calls at the same time". We can call add_to_budget
+ twice in a single response? Probably we can call function twice concurrently in one
+ <｜DSML｜function_calls> block. That is allowed. After calls, we give final balance
+.
+
+We'll call add_to_budget with amount 5 and then add_to_budget with amount 3. Let's
+ do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Both calls returned balance after each call: first 105, second 108. So final balance
+ $108. Provide answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your final budget balance is $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121736_b25fa5
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121736_b25fa5
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       6s
+Messages:       5 (1 user, 3 tool calls)

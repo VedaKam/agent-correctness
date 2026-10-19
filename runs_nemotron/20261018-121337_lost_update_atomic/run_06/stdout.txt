@@ -1,0 +1,35 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to make both calls at same time. There's a tool add_to_budget that returns
+ new balance. We can batch? likely need to invoke tool twice in same response? The
+ user said "Make both calls at the same time". Possibly use multiple tool calls in
+ one response? The system may support parallel tool calls. We'll call add_to_budget
+ twice with amounts 5 and 3. Each returns a balance, but final balance should be 1
+00+5+3=108. We'll invoke both sequentially in calls. Use function calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have two responses: first balance 105.0, second 108.0. So final balance $108.0
+. Use plain claim.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $108.0.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_121526_44fc39
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_121526_44fc39
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       6s
+Messages:       5 (1 user, 3 tool calls)

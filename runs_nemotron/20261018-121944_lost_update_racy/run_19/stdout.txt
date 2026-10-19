@@ -1,0 +1,56 @@
+Query: My budget starts at $100. Use add_to_budget to add $5 and add $3. Make 
+both calls at the same time, then tell me the final balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $5 and $3 in one shot? The tool add_to_budget adds amount to balance
+ and returns new balance. There's no multi-amount addition in one call. We can call
+ add_to_budget twice sequentially. Use parallel tool calls? The system says "Batch
+ each sub-procedure (navigate, wait, extract, act) into one call — do not spend a
+ call per action — but for long extractions prefer several medium calls ...". But
+ tool add_to_budget is a single call; there's no way to batch multiple additions in
+ one call. However maybe we can call add_to_budget with sum $8? But they said "add
+ $5 and add $3". Likely need two separate calls. The user wants "Make both calls at
+ the same time, then tell me the final balance." Probably we can call both add_to
+_budget in same response? There's a tool add_to_budget only takes amount. We can call
+ it twice in parallel? The system supports "Parallel tool calls" but each call must
+ be independent. They said batch each sub-procedure... For two additions, each is
+ a separate sub-procedure. Could call add_to_budget twice in same response? The tool
+ call format is JSON per operation; you can include multiple tool calls? The system
+ says "When you need several pieces of information that don't depend on each other
+, request them together in a single response instead of one tool call per turn. Independent
+ reads, searches, web fetches, and read-only commands should be batched into the same
+ assistant turn — the runtime executes independent calls concurrently". So we can
+ output two tool calls in one response? In the format we must output a single tool
+_call JSON? Actually the system expects one JSON per tool call. But we can output
+ two <｜DSML｜function_calls> blocks? Probably we need to call both tools sequentially
+? Might be okay to call both in same response. Let's do that.
+
+First call add_to_budget with amount 5, second with amount 3. Then get both results
+, sum with original 100.
+
+We'll produce two calls.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing add_to_budget…
+  ┊ ⚡ add_to_bu   0.5s
+  ┊ ⚡ add_to_bu   0.5s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We got results: after +5 → 105, after +3 → 108. Final balance 108. Provide answer
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $108.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_122411_e2c96b
+  hermes -c "My budget starts at $100. Use add_to_budget to…"
+
+Session:        20261018_122411_e2c96b
+Title:          My budget starts at $100. Use add_to_budget to…
+Duration:       10s
+Messages:       5 (1 user, 3 tool calls)

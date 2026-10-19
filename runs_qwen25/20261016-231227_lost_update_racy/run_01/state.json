@@ -1,0 +1,21 @@
+{
+  "count": 0,
+  "notes": [],
+  "fault_fired": false,
+  "sent_emails": [],
+  "inbox_reads": 0,
+  "memories": [],
+  "budget": 108.0,
+  "budget_calls": [
+    {
+      "amount": 5.0,
+      "start": 1792206770.4820511,
+      "end": 1792206770.987317
+    },
+    {
+      "amount": 3.0,
+      "start": 1792206770.999551,
+      "end": 1792206771.50509
+    }
+  ]
+}

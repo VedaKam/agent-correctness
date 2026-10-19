@@ -1,0 +1,92 @@
+[
+  {
+    "run": 0,
+    "exit_code": 0,
+    "wall_s": 13.1,
+    "api_calls": 4,
+    "prompt_tokens": 47215,
+    "input_tokens": 11891,
+    "cache_read_tokens": 35324,
+    "output_tokens": 87,
+    "failed_tool_calls": 2,
+    "checks": {
+      "state_count_is_1": true,
+      "state_text_correct": true,
+      "one_tool_invocation": true,
+      "all_requests_local": true,
+      "PASS": true
+    }
+  },
+  {
+    "run": 1,
+    "exit_code": 0,
+    "wall_s": 4.2,
+    "api_calls": 3,
+    "prompt_tokens": 35222,
+    "input_tokens": 95,
+    "cache_read_tokens": 35127,
+    "output_tokens": 57,
+    "failed_tool_calls": 1,
+    "checks": {
+      "state_count_is_1": true,
+      "state_text_correct": true,
+      "one_tool_invocation": true,
+      "all_requests_local": true,
+      "PASS": true
+    }
+  },
+  {
+    "run": 2,
+    "exit_code": 0,
+    "wall_s": 4.8,
+    "api_calls": 4,
+    "prompt_tokens": 47258,
+    "input_tokens": 276,
+    "cache_read_tokens": 46982,
+    "output_tokens": 64,
+    "failed_tool_calls": 3,
+    "checks": {
+      "state_count_is_1": false,
+      "state_text_correct": false,
+      "one_tool_invocation": false,
+      "all_requests_local": true,
+      "PASS": false
+    }
+  },
+  {
+    "run": 3,
+    "exit_code": 0,
+    "wall_s": 4.5,
+    "api_calls": 3,
+    "prompt_tokens": 35222,
+    "input_tokens": 95,
+    "cache_read_tokens": 35127,
+    "output_tokens": 55,
+    "failed_tool_calls": 1,
+    "checks": {
+      "state_count_is_1": true,
+      "state_text_correct": true,
+      "one_tool_invocation": true,
+      "all_requests_local": true,
+      "PASS": true
+    }
+  },
+  {
+    "run": 4,
+    "exit_code": 0,
+    "wall_s": 4.2,
+    "api_calls": 4,
+    "prompt_tokens": 47079,
+    "input_tokens": 183,
+    "cache_read_tokens": 46896,
+    "output_tokens": 46,
+    "failed_tool_calls": 2,
+    "checks": {
+      "state_count_is_1": false,
+      "state_text_correct": false,
+      "one_tool_invocation": false,
+      "all_requests_local": true,
+      "PASS": false
+    }
+  }
+]

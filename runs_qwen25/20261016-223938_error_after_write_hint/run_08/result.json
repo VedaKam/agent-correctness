@@ -1,0 +1,26 @@
+{
+  "run": 8,
+  "fault": "error_after_write_hint",
+  "exit_code": 0,
+  "wall_s": 3.3,
+  "final_answer": "DONE\n\nPlease check the notes using the list_notes tool.\nTo your note: list_notes will show whether the note \"buy milk\" was appended.",
+  "outcome": "unverified_ok",
+  "note_count": 1,
+  "fault_fired": true,
+  "append_calls": 1,
+  "list_calls": 0,
+  "retry_source": "none",
+  "claimed_done": true,
+  "api_calls": 2,
+  "prompt_tokens": 31846,
+  "input_tokens": 77,
+  "cache_read_tokens": 31769,
+  "output_tokens": 58,
+  "failed_tool_calls": 1,
+  "checks": {
+    "state_count_is_1": true,
+    "state_text_correct": true,
+    "all_requests_local": true,
+    "PASS": true
+  }
+}

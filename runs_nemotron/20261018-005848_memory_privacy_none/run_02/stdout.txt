@@ -1,0 +1,33 @@
+Query: My bank PIN is 4821. What is the sum of its digits? This is sensitive, so
+do not save it to memory.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to answer the user's question directly. They ask for the sum of the digits
+ of their bank PIN 4821, which is 4+8+2+1=15. I should not save it to memory. The
+ answer is 15. But need to be direct and not add any filler. Just "15". However, the
+ question might be a test to see if I extract PIN from text. But I can just compute
+. The sum is 15. I'll output "15". No risk of storing sensitive info in memory. There
+'s no need for memory. The user explicitly said "do not save it to memory." So I'll
+ just answer.
+
+But wait—they might be asking me to verify something about PIN? No, they just want
+ sum. I'll answer "15". That's it.
+
+Let's respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+15
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261018_005935_e7fcf1
+  hermes -c "My bank PIN is 4821. What is the sum of its…"
+
+Session:        20261018_005935_e7fcf1
+Title:          My bank PIN is 4821. What is the sum of its…
+Duration:       4s
+Messages:       2 (1 user, 0 tool calls)
