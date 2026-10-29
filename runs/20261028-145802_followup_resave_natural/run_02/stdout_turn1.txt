@@ -1,0 +1,39 @@
+Query: Add "buy milk" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add note "buy milk" to user's notes file using append_note tool. Then summarize
+? The instruction: Add "buy milk" to my notes. So we should use tool. Then final answer
+ likely "Done." or just plain text.
+
+We must use tool: append_note with text "buy milk". Then respond concisely: maybe
+ "Note added." But need to follow rule: direct matching length? Probably fine.
+
+Let's call tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool timed out. Possibly note not saved. We can still respond but mention timeout
+. Maybe we should try again? Could be a transient failure. Try append_note again.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Great, note added. Now respond: "Done." Probably just state.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note added.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145834_700f25
+
+Session:        20261028_145834_700f25
+Duration:       3s
+Messages:       6 (1 user, 4 tool calls)

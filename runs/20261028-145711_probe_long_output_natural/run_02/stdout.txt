@@ -1,0 +1,25 @@
+Query: What's going on with my order A17?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to answer order status. Use get_order_history tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_order_history…
+  ┊ ⚡ get_order   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need answer: order A17 status is "refunded". Provide concise.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your order A17 is marked refunded (item 17, status refunded, total $69.49).
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145733_249275
+
+Session:        20261028_145733_249275
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

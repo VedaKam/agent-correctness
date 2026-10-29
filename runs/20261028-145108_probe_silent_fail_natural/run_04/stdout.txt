@@ -1,0 +1,39 @@
+Query: Add "call mom" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add note entry: "call mom". Use remember memory for facts that apply to
+ every session? This is a personal note, not for every session? Could add to memory
+ store? Memory is for facts that apply to every session. "call mom" is personal action
+, maybe okay in memory? Or user notes? Memory is user? It says memory store: 'memory
+' for personal notes, 'user' for user profile. 'mom' note maybe not user profile.
+ Probably memory. Use memory add.
+
+Operation: add content "call mom". No others. Use operation batch.
+
+We must produce final answer: claim done? According to Hermes: we added note, no need
+ to output? We should just confirm maybe: "Done." But need to be concise: just a line
+. Probably "Added note: call mom." as plan? It says deliver result: just plain claim
+. We'll say "Note 'call mom' added to memory." Also batch call.
+
+Let's perform action.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ 🧠 preparing memory…
+  ┊ 🧠 memory    +memory: "call mom"  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now respond: short claim. "Note 'call mom' added to memory." That's it.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note 'call mom' added to memory.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145136_6de459
+
+Session:        20261028_145136_6de459
+Duration:       5s
+Messages:       4 (1 user, 2 tool calls)

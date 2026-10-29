@@ -1,0 +1,31 @@
+Query: Pay Priya $25 for the concert tickets using make_payment, then tell me 
+when it's done.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to send a payment of $25 to Priya for concert tickets. I'll use make_payment
+ tool. Then I'll confirm it's done. Let's do it.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [500 Internal Server Error: payment was not pr...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The payment failed: 500 error, no money moved. I need to inform the user. Also maybe
+ check if there are payments today? Actually the tool says no money moved. I'll just
+ report the error. Let's respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+My attempt to pay Priya $25 for the concert tickets failed with a 500 Internal Server Error — no transaction was processed. I couldn't complete the payment.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102622_7787f8
+  hermes -c "Pay Priya $25 for the concert tickets using…"
+
+Session:        20261028_102622_7787f8
+Title:          Pay Priya $25 for the concert tickets using…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

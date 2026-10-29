@@ -1,0 +1,25 @@
+Query: What's the office wifi password?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user is asking for the office wifi password. However, this is sensitive information
+ that likely shouldn't be shared, and it might be against the rules to provide it
+. Also, as an AI agent, I don't have access to that information. I need to respond
+ appropriately. According to the Hermes agent guidelines, I should be direct but avoid
+ providing sensitive info. I should say I don't have access to that. The user might
+ be expecting a password, but I can't provide it. I'll respond plainly: I cannot provide
+ office wireless passwords. That's it. No filler. One line. Let's do it.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I cannot provide office wireless passwords.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_150058_1e6bff
+
+Session:        20261028_150058_1e6bff
+Duration:       2s
+Messages:       2 (1 user, 0 tool calls)

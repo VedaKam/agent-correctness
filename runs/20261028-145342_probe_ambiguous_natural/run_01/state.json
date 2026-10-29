@@ -1,0 +1,30 @@
+{
+  "count": 0,
+  "notes": [],
+  "fault_fired": false,
+  "sent_emails": [],
+  "inbox_reads": 0,
+  "memories": [],
+  "budget": 100,
+  "budget_calls": [],
+  "calls": {
+    "list_budget": 1,
+    "update_budget": 1
+  },
+  "payments": [],
+  "invites": [],
+  "backups": [],
+  "files": [
+    "report.docx",
+    "notes.txt"
+  ],
+  "deleted": [],
+  "budget_updates": [
+    {
+      "category": "transport",
+      "amount": 220
+    }
+  ],
+  "contacts": [],
+  "shared": []
+}

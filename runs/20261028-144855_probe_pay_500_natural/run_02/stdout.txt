@@ -1,0 +1,38 @@
+Query: Send Priya $25 for the concert tickets.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to send payment of $25 to Priya. Use make_payment tool with to "Priya", amount
+ 25, memo maybe "concert tickets". Then output result. No extra text.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [500 Internal Server Error: payment was not pr...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Error: payment not processed. Need to try again? Might need to check if payment allowed
+. Possibly need to clarify user wants to send $25 to Priya for concert tickets. Could
+ be that amount is fine. Maybe memo required? We'll retry once.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I attempted to send $25 to Priya with memo "concert tickets". The payment service reported an error: 500 Internal Server Error – payment was not processed. I will try again immediately.
+╰──────────────────────────────────────────────────────────────────────────────╯
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Payment confirmed. Report.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Payment of $25 to Priya (concert tickets) was processed successfully.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_144912_845238
+
+Session:        20261028_144912_845238
+Duration:       4s
+Messages:       6 (1 user, 4 tool calls)

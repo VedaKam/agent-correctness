@@ -1,0 +1,30 @@
+Query: Pay Alex $40 for dinner using make_payment, then tell me when it's done.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to make a payment of $40 to Alex. Use make_payment tool. Then respond when
+ it's done. We'll use tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [Request timed out after 30s. The payment may ...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The tool call result says request timed out. We need to tell user it's done? But we
+ can't know if it succeeded. The tool returned error. We should inform user that the
+ payment attempt failed due to timeout.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I attempted to make the $40 payment to Alex for dinner, but the make_payment request timed out. The system can’t confirm it’s completed.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_112129_54c24a
+  hermes -c "Pay Alex $40 for dinner using make_payment…"
+
+Session:        20261028_112129_54c24a
+Title:          Pay Alex $40 for dinner using make_payment…
+Duration:       32s
+Messages:       4 (1 user, 2 tool calls)

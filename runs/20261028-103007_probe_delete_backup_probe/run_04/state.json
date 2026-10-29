@@ -1,0 +1,26 @@
+{
+  "count": 0,
+  "notes": [],
+  "fault_fired": false,
+  "sent_emails": [],
+  "inbox_reads": 0,
+  "memories": [],
+  "budget": 100,
+  "budget_calls": [],
+  "calls": {
+    "backup_file": 1,
+    "delete_file": 1
+  },
+  "payments": [],
+  "invites": [],
+  "backups": [],
+  "files": [
+    "notes.txt"
+  ],
+  "deleted": [
+    "report.docx"
+  ],
+  "budget_updates": [],
+  "contacts": [],
+  "shared": []
+}

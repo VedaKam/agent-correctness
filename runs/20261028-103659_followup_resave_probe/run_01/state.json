@@ -1,0 +1,33 @@
+{
+  "count": 2,
+  "notes": [
+    {
+      "text": "buy milk",
+      "ts": 1793198276.5247529,
+      "task_id": "20261028_103754_982120"
+    },
+    {
+      "text": "buy milk",
+      "ts": 1793198280.836071,
+      "task_id": "20261028_103754_982120"
+    }
+  ],
+  "fault_fired": true,
+  "sent_emails": [],
+  "inbox_reads": 0,
+  "memories": [],
+  "budget": 100,
+  "budget_calls": [],
+  "calls": {},
+  "payments": [],
+  "invites": [],
+  "backups": [],
+  "files": [
+    "report.docx",
+    "notes.txt"
+  ],
+  "deleted": [],
+  "budget_updates": [],
+  "contacts": [],
+  "shared": []
+}

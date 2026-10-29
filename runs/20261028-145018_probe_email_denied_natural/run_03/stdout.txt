@@ -1,0 +1,28 @@
+Query: Let Sam know I'm running 15 min late today. His email is sam@company.com.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to send email to sam@company.com informing Sam running 15 min late. Use send
+_email tool. Provide body "Running 15 min late." Subject maybe "Running 15 min late
+". Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing send_email…
+  ┊ ⚡ send_emai   0.0s [403 Forbidden: this account is not authorized...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Email send failed due to unauthorized. According to policy, never invent fabricated
+ results. The attempt failed. Should inform user. Provide clear reply.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I attempted to send the email to sam@company.com, but the system returned an authentication error (“403 Forbidden: this account is not authorized to send email. Message was not sent.”). The message was not delivered.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145052_1c8da7
+
+Session:        20261028_145052_1c8da7
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

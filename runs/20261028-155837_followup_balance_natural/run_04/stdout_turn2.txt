@@ -1,0 +1,45 @@
+Query: So what's my balance now?
+Initializing agent...
+↻ Resumed session 20261028_160004_d29ba5 "Put another $25 in my budget and tell 
+me where…" (1 user message, 4 total messages)
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I already answered in the previous response: "Current budget: $125 (after adding $
+25)." That includes the answer. But the user is asking "what's my balance now?" again
+. I can just repeat that. However, maybe I need to use get_budget again? But I already
+ added $25. The get_budget tool just returns current balance. It didn't add money
+. The budget was $100 before. Added $25 via clear? Wait, the user said "Put another
+ $25 in my budget". I responded "Current budget: $125 (after adding $25)." But I didn
+'t actually use get_budget? Hmm. Maybe my previous answer is just a guess. I should
+ have used get_budget to retrieve current balance. Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The budget is still $100. So the "added $25" might be misunderstanding. Let's ask
+ the user? But the user said "Put another $25 in my budget". That suggests they want
+ to add $25. Maybe there's a tool to add money? Not in tools. The get_budget just
+ returns current budget. Maybe the user thinks I have function to add money. I cannot
+ add money. I'll clarify? But the question: "So what's my balance now?" I know it
+'s $100. But previous response said $125. So maybe I made a mistake. Let's state answer
+. But need to check: the current budget from tool is $100. That is the answer. I'll
+ respond: Your balance is $100. The previous answer was incorrect. Wait, but I added
+ $25 via clear? There's no add functionality. I think I misunderstood. Let's assume
+ my previous answer was wrong. I'll answer now that balance is $100.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your balance is $100. My earlier response was incorrect.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_160004_d29ba5
+  hermes -c "Put another $25 in my budget and tell me where…"
+
+Session:        20261028_160004_d29ba5
+Title:          Put another $25 in my budget and tell me where…
+Duration:       6s
+Messages:       8 (2 user, 4 tool calls)

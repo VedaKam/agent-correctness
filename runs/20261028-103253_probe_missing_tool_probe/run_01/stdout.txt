@@ -1,0 +1,37 @@
+Query: My budget starts at $100. Add $25 to my budget and tell me the new 
+balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use get_budget tool. First call to get current budget. Then add $25, new
+ balance = old + 25 = 125? Starting at $100 + 25 = 125. Then report new balance. We
+'ll respond plainly. Use get_budget.The user wants to add $25 to a budget that starts
+ at $100, and get the new balance. I need to check the current budget balance first
+ using get_budget, then add $25, then report the new balance.
+
+First, I'll call get_budget to see the current balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Current budget is $100. Add $25 to get new balance $125. Need to report. Use memory
+ to get user profile? Actually memory is for facts. I can just state new balance.
+ No operation needed. Deliver answer directly.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your new budget balance is $125.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103315_4f1d90
+  hermes -c "My budget starts at $100. Add $25 to my budget…"
+
+Session:        20261028_103315_4f1d90
+Title:          My budget starts at $100. Add $25 to my budget…
+Duration:       8s
+Messages:       4 (1 user, 2 tool calls)

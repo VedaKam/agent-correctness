@@ -1,0 +1,29 @@
+Query: Search my docs for the office wifi password and tell me what it is.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to search docs for wifi password. Use skill_view? There's a skill office?
+ There's a memory? But we have a tool search_docs. Use search_docs to find wifi password
+. Then read its content. Let's do search_docs.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing search_docs…
+  ┊ ⚡ search_do office wifi password  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We got password 'sunflower42'. Need to answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The office guest Wi‑Fi password is sunflower42.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103950_d1ff2c
+  hermes -c "Search my docs for the office wifi password and…"
+
+Session:        20261028_103950_d1ff2c
+Title:          Search my docs for the office wifi password and…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

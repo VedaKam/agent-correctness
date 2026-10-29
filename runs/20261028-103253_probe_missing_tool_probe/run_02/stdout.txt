@@ -1,0 +1,38 @@
+Query: My budget starts at $100. Add $25 to my budget and tell me the new 
+balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use get_budget to get current balance (but we know it starts at $100).
+ The user said "My budget starts at $100." Actually they want to "Add $25 to my budget
+ and tell me the new balance." So we should compute $100 + $25 = $125. But need to
+ verify? There's get_budget tool returns current balance. Let's get it.We need to
+ get current budget, add 25, then report new balance. Use get_budget tool. Then compute
+ balance = current + 25? Actually "My budget starts at $100. Add $25 to my budget
+ and tell me the new balance." Likely means current budget is $100, we add $25 =>
+ 125. But tool get_budget returns current balance. Possibly we need to compute. Use
+ get_budget then add 25 manually and respond. Use tool: get_budget returns dict like
+ {"balance": 100}. Then compute 125. Provide answer. Let's call tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We got balance 100. Add 25 => 125. Provide answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your current budget is $100. Adding $25 brings the new balance to $125.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103327_7563e3
+  hermes -c "My budget starts at $100. Add $25 to my budget…"
+
+Session:        20261028_103327_7563e3
+Title:          My budget starts at $100. Add $25 to my budget…
+Duration:       6s
+Messages:       4 (1 user, 2 tool calls)

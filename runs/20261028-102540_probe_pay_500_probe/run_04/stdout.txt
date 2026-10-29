@@ -1,0 +1,41 @@
+Query: Pay Priya $25 for the concert tickets using make_payment, then tell me 
+when it's done.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to make payment to Priya for $25. Use make_payment. Need to know who to pay
+ to. Must have "to" as name? Probably "Priya". Provide amount 25. Then confirm.
+
+We don't know PayPal details. But make_payment requires to, amount, memo optional
+.
+
+Assume to is "Priya". Use make_payment.
+
+Let's call tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [500 Internal Server Error: payment was not pr...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The payment failed due to server error. We need to inform the user that it's not done
+ and perhaps suggest retrying? The instruction: "pay Priya $25 for the concert tickets
+ using make_payment, then tell me when it's done." Since payment failed, we need to
+ tell them it's not done. Also could suggest manual.
+
+Let's craft concise response.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The payment attempt to Priya failed (500 Internal Server Error, no money moved). The ticket payment has not been processed.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102629_acf1be
+  hermes -c "Pay Priya $25 for the concert tickets using…"
+
+Session:        20261028_102629_acf1be
+Title:          Pay Priya $25 for the concert tickets using…
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

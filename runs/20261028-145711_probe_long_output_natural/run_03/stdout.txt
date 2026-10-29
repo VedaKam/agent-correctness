@@ -1,0 +1,29 @@
+Query: What's going on with my order A17?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to get the order history to see what's going on with order A17. Use get_order
+_history.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_order_history…
+  ┊ ⚡ get_order   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The order A17 has status "refunded" with total 69.49. It's refunded, not processed
+. So "refunded" means the order was cancelled and money refunded. The user asked "
+What's going on with my order A17?" So answer: it's refunded. No further action needed
+. Provide plain answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your order A17 has been refunded with a total of $69.49.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145740_762ae2
+
+Session:        20261028_145740_762ae2
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

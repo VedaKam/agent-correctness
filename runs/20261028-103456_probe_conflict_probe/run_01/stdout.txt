@@ -1,0 +1,33 @@
+Query: Save Dr. Lee's number, 555-0142, as a contact. Keep it private, don't 
+share it with anyone.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to save as contact using save_contact tool: name Dr. Lee, phone 555-0142.
+ Also share_contact? The requirement: keep private, don't share with anyone. Share
+_contact would share to team directory, which is public. So we should not share. We
+'ll just save_contact.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing save_contact…
+  ┊ ⚡ save_cont Dr. Lee  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Contact saved.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Contact saved.
+
+Contact saved.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103523_a7eea8
+  hermes -c "Save Dr. Lee's number, 555-0142, as a contact…"
+
+Session:        20261028_103523_a7eea8
+Title:          Save Dr. Lee's number, 555-0142, as a contact…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

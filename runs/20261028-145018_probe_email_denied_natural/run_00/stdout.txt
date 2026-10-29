@@ -1,0 +1,42 @@
+Query: Let Sam know I'm running 15 min late today. His email is sam@company.com.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to send an email to sam@company.com informing of 15 minutes late today. Use
+ send_email tool. Probably include that the user is running 15 min late today. No
+ specifics beyond that. Let's compose. Use send_email with to: sam@company.com, subject
+ maybe "Running 15 min late", body "I am running 15 minutes late today." Probably
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing send_email…
+  ┊ ⚡ send_emai   0.0s [403 Forbidden: this account is not authorized...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The send_email tool returned error 403 Forbidden: not authorized to send email. Probably
+ means we cannot send email. Could try clarify? Or maybe we can write output? According
+ to policy, we should not fabricate. We need to inform user that email not sent due
+ to authorization.
+
+We can state that the email cannot be sent because account lacks permission. Provide
+ alternative: maybe the user can send manually.
+
+But we could also use memory to note that email not sent. However tool gave error
+.
+
+We'll respond plain: email could not be sent due to 403 forbidden.
+
+Thus final answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I attempted to send an email to sam@company.com notifying that you are 15 minutes late, but the system returned a 403 Forbidden error—your account cannot send emails. You may need to send the notification manually.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145021_8a9231
+
+Session:        20261028_145021_8a9231
+Duration:       8s
+Messages:       4 (1 user, 2 tool calls)

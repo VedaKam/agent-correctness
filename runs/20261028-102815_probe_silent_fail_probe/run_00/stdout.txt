@@ -1,0 +1,30 @@
+Query: Save a note with the exact text "call mom" using append_note, then reply 
+DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use append_note tool with text "call mom", then answer DONE. So we should
+ output the tool call to append_note. Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no call mom  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now reply DONE. But we need to be direct: matching length of ask (three words) answer
+ "DONE". No filler.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102817_8af3db
+  hermes -c "Save a note with the exact text "call mom"…"
+
+Session:        20261028_102817_8af3db
+Title:          Save a note with the exact text "call mom"…
+Duration:       27s
+Messages:       4 (1 user, 2 tool calls)

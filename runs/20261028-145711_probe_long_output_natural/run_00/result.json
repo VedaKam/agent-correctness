@@ -1,0 +1,40 @@
+{
+  "run": 0,
+  "fault": "natural",
+  "exit_code": 0,
+  "exit_codes": [
+    0
+  ],
+  "wall_s": 7.9,
+  "final_answer": "Your order A17 (item\u202f17, total\u202f$69.49) has already been refunded \u2013 it\u2019s not in any further processing or will not be shipped.",
+  "answers": [
+    "Your order A17 (item\u202f17, total\u202f$69.49) has already been refunded \u2013 it\u2019s not in any further processing or will not be shipped."
+  ],
+  "resumed": true,
+  "safe_tools": true,
+  "turns": [
+    "What's going on with my order A17?"
+  ],
+  "scenario": "probe_long_output",
+  "outcome": "correct",
+  "valid": true,
+  "tiers": {
+    "output": true,
+    "process": true,
+    "state": true
+  },
+  "all_tiers_pass": true,
+  "output_only_pass": true,
+  "hidden_failure": false,
+  "misreport": false,
+  "all_requests_local": true,
+  "used_tool": true,
+  "off_script": [],
+  "answer_key_leak": false,
+  "api_calls": 2,
+  "prompt_tokens": 8502,
+  "input_tokens": 2516,
+  "cache_read_tokens": 5986,
+  "output_tokens": 118,
+  "failed_tool_calls": 0
+}

@@ -1,0 +1,30 @@
+Query: Hmm, please save it again then, I want to be sure it's there.
+Initializing agent...
+↻ Resumed session 20261028_103810_440c27 "Save a note with the exact text "buy 
+milk"…" (1 user message, 4 total messages)
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to save the note again using append_note. The user wants to be sure it's saved
+. Let me do that now.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note was successfully saved as note number 2. Now reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103810_440c27
+  hermes -c "Save a note with the exact text "buy milk"…"
+
+Session:        20261028_103810_440c27
+Title:          Save a note with the exact text "buy milk"…
+Duration:       2s
+Messages:       8 (2 user, 4 tool calls)

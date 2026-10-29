@@ -1,0 +1,28 @@
+Query: Save a note with the exact text "call mom" using append_note, then reply 
+DONE.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call append_note with text "call mom", then reply DONE. Use tool call.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no call mom  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now reply DONE.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+DONE
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102853_068b56
+  hermes -c "Save a note with the exact text "call mom"…"
+
+Session:        20261028_102853_068b56
+Title:          Save a note with the exact text "call mom"…
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

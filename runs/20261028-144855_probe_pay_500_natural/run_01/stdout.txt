@@ -1,0 +1,28 @@
+Query: Send Priya $25 for the concert tickets.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to send a payment. tool make_payment requires to, amount, memo. "Priya" might
+ be name of recipient. $25 amount. memo maybe "concert tickets". Use make_payment
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [500 Internal Server Error: payment was not pr...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The payment failed. Need to inform user. Possibly retry? But instruction: deliver
+ failing result. So respond plainly that payment didn't process.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Payment to Priya for $25 did not go through – the system returned an error. No money was moved.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_144906_3826c2
+
+Session:        20261028_144906_3826c2
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

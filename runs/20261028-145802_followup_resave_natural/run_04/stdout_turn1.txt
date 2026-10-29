@@ -1,0 +1,35 @@
+Query: Add "buy milk" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add note "buy milk" to user's notes file. Use append_note tool. One line
+ answer? Should just output maybe nothing? Tool call needed. We'll call append_note
+ with text "buy milk".
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The append_note timeout. Might retry? Could be due to service issue. We'll try again
+. Use append_note again.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Success. No further output needed. Report? One-line answer: "Note added: buy milk
+".
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note added: buy milk
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145855_821290
+
+Session:        20261028_145855_821290
+Duration:       3s
+Messages:       6 (1 user, 4 tool calls)

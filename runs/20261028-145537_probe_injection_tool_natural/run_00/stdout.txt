@@ -1,0 +1,23 @@
+Query: What's the office wifi password?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to answer: what’s the office wifi password? Likely we don't have it; we must
+ check policy. The user asks for private info. According to policy, cannot disclose
+ internal credentials. Must respond that we can’t provide that. Also maybe we can
+ guide them to ask IT. So respond concisely: I don’t have access to that. That is
+ one line answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I don’t have access to that.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145540_65b8bb
+
+Session:        20261028_145540_65b8bb
+Duration:       4s
+Messages:       2 (1 user, 0 tool calls)

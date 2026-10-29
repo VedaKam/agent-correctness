@@ -12,6 +12,7 @@ is not the same system as run 1). Scenarios and oracles live in scenarios.py.
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -41,8 +42,10 @@ def token_totals(trace):
     return t
 
 
-def evaluate(scenario, fault, state, trace, final, hermes_memory):
+def evaluate(scenario, fault, state, trace, final, hermes_memory, exit_code=0):
     tiers, outcome, valid, extra = SCENARIOS[scenario]["check"](fault, state, trace, final, hermes_memory)
+    if exit_code != 0 and not (final or "").strip():
+        outcome, valid = "run_error", False   # Hermes crashed or timed out; nothing to grade
     api = [e for e in trace if e["event"] == "api_request"]
     local = bool(api) and all(_is_local(e.get("base_url")) for e in api)
     return {
@@ -129,12 +132,37 @@ def _final_answer(stdout: str) -> str:
 
 # ---------------- running ----------------
 
-def run_once(template, pristine, out_root, i, timeout, scenario, fault):
+def _resumed(trace) -> bool:
+    """Did every later turn continue the same conversation? The first model
+    request after a turn marker must carry earlier messages (count > 2)."""
+    after_marker = False
+    for e in trace:
+        if e["event"] == "turn":
+            after_marker = True
+        elif after_marker and e["event"] == "api_request":
+            if (e.get("message_count") or 0) <= 2:
+                return False
+            after_marker = False
+    return not after_marker  # a marker with no request after it = turn never ran
+
+
+SAFE_TOOLSETS = "eval_harness,memory,clarify"
+
+
+def prompts_for(scenario, fault):
+    """Turns to send. Probes have one list per wording ("probe" = explicit, "natural")."""
+    s = SCENARIOS[scenario]
+    return s.get("prompts", {}).get(fault) or s.get("turns") or [s["prompt"]]
+
+
+def run_once(template, pristine, out_root, i, timeout, scenario, fault, safe_tools=False):
     run_dir = out_root / f"run_{i:02d}"
     run_dir.mkdir(parents=True)
     reset_home(template, pristine)
     state_p, trace_p = run_dir / "state.json", run_dir / "trace.jsonl"
-    prompt = SCENARIOS[scenario]["prompt"]
+    turns = prompts_for(scenario, fault)
+    # --safe-tools: only our mock tools plus memory and clarify; no terminal, file, browser, etc.
+    ts = ["--toolsets", SAFE_TOOLSETS] if safe_tools else []
 
     env = {**os.environ,
            "HERMES_HOME": str(template),
@@ -143,25 +171,54 @@ def run_once(template, pristine, out_root, i, timeout, scenario, fault):
            "EVAL_STATE_PATH": str(state_p.resolve()),
            "EVAL_TRACE_PATH": str(trace_p.resolve())}
     t0 = time.time()
-    try:
-        proc = subprocess.run(["hermes", "chat", "-q", prompt], env=env,
-                              stdin=subprocess.DEVNULL,  # no TTY -> exits after the answer
-                              capture_output=True, text=True, timeout=timeout)
-        stdout, stderr, code = proc.stdout, proc.stderr, proc.returncode
-    except subprocess.TimeoutExpired as e:
-        stdout, stderr, code = str(e.stdout or ""), f"TIMEOUT after {timeout}s", -1
+    answers, codes, session = [], [], None
+    for k, prompt in enumerate(turns):
+        if k == 0:
+            commands = [["hermes", "chat", *ts, "-q", prompt]]
+        else:
+            if not session:
+                answers.append("")
+                codes.append(-2)        # could not find the session to resume
+                break
+            # mark the turn boundary in the trace, then continue the same session
+            with open(trace_p, "a") as f:
+                f.write(json.dumps({"event": "turn", "n": k + 1, "ts": time.time()}) + "\n")
+            # the docs don't show --resume combined with -q, so try both flag orders
+            commands = [["hermes", "chat", *ts, "--resume", session, "-q", prompt],
+                        ["hermes", "--resume", session, "chat", *ts, "-q", prompt]]
+        stdout = stderr = ""
+        code = -1
+        for cmd in commands:
+            try:
+                proc = subprocess.run(cmd, env=env,
+                                      stdin=subprocess.DEVNULL,  # no TTY -> exits after the answer
+                                      capture_output=True, text=True, timeout=timeout)
+                stdout, stderr, code = proc.stdout, proc.stderr, proc.returncode
+            except subprocess.TimeoutExpired as e:
+                stdout, stderr, code = str(e.stdout or ""), f"TIMEOUT after {timeout}s", -1
+            if code == 0:
+                break
+        suffix = "" if len(turns) == 1 else f"_turn{k + 1}"
+        (run_dir / f"stdout{suffix}.txt").write_text(stdout)
+        (run_dir / f"stderr{suffix}.txt").write_text(stderr)
+        answers.append(_final_answer(stdout))
+        codes.append(code)
+        m = re.search(r"Session:\s+(\S+)", stdout)
+        session = m.group(1) if m else session
     wall = time.time() - t0
-    (run_dir / "stdout.txt").write_text(stdout)
-    (run_dir / "stderr.txt").write_text(stderr)
     hermes_memory = read_hermes_memory(template)
     (run_dir / "hermes_memory.txt").write_text(hermes_memory)
 
     state = json.loads(state_p.read_text()) if state_p.exists() else {}
     trace = [json.loads(l) for l in trace_p.read_text().splitlines()] if trace_p.exists() else []
-    final = _final_answer(stdout)
-    result = {"run": i, "scenario": scenario, "fault": fault, "exit_code": code,
-              "wall_s": round(wall, 1), "final_answer": final,
-              **evaluate(scenario, fault, state, trace, final, hermes_memory),
+    resumed = len(turns) == 1 or _resumed(trace)
+    state["_answers"], state["_resumed"] = answers, resumed
+    final = answers[-1] if answers else ""
+    result = {"run": i, "scenario": scenario, "fault": fault, "safe_tools": safe_tools, "turns": turns,
+              "exit_code": codes[-1] if codes else -1, "exit_codes": codes,
+              "wall_s": round(wall, 1), "final_answer": final, "answers": answers,
+              "resumed": resumed,
+              **evaluate(scenario, fault, state, trace, final, hermes_memory, codes[-1] if codes else -1),
               **token_totals(trace)}
     (run_dir / "result.json").write_text(json.dumps(result, indent=2))
     return result
@@ -175,6 +232,8 @@ def print_run(r):
         flags.append("HIDDEN: output looks fine")
     if r.get("misreport"):
         flags.append("MISREPORT: state fine, answer wrong")
+    if r.get("resumed") is False:
+        flags.append("TURN 2 DID NOT RESUME SESSION")
     if not r["valid"]:
         flags.append("not exercised")
     if not r["all_requests_local"]:
@@ -196,14 +255,14 @@ def print_summary(results, out):
     print(f"tiers legend: O=output P=process S=state ('.' = failed)   -> {out}")
 
 
-def run_batch(template, pristine, scenario, fault, n, timeout, out=None):
+def run_batch(template, pristine, scenario, fault, n, timeout, out=None, safe_tools=False):
     out = out or Path("runs") / f"{time.strftime('%Y%m%d-%H%M%S')}_{scenario}_{fault}"
     out.mkdir(parents=True, exist_ok=True)
     print(f"\n=== scenario={scenario}  condition={fault}  n={n}")
-    print(f"prompt: {SCENARIOS[scenario]['prompt']!r}")
+    print(f"prompt: {prompts_for(scenario, fault)!r}" + ("   [safe tools]" if safe_tools else ""))
     results = []
     for i in range(n):
-        r = run_once(template, pristine, out, i, timeout, scenario, fault)
+        r = run_once(template, pristine, out, i, timeout, scenario, fault, safe_tools)
         results.append(r)
         print_run(r)
     reset_home(template, pristine)  # leave the template clean
@@ -224,11 +283,16 @@ def rescore(d: Path):
         trace = [json.loads(l) for l in trace_p.read_text().splitlines()] if trace_p.exists() else []
         mem_p = run_dir / "hermes_memory.txt"
         mem = mem_p.read_text() if mem_p.exists() else ""
-        keep = {k: r[k] for k in ("run", "fault", "exit_code", "wall_s", "final_answer") if k in r}
+        state["_answers"] = r.get("answers") or [r["final_answer"]]
+        state["_resumed"] = r.get("resumed", True)
+        keep = {k: r[k] for k in ("run", "fault", "exit_code", "exit_codes", "wall_s",
+                                  "final_answer", "answers", "resumed", "safe_tools", "turns") if k in r}
         nr = {**keep, "scenario": scenario,
-              **evaluate(scenario, r["fault"], state, trace, r["final_answer"], mem),
+              **evaluate(scenario, r["fault"], state, trace, r["final_answer"], mem, r.get("exit_code", 0)),
               **token_totals(trace)}
         new.append(nr)
+        if run_dir.exists():
+            (run_dir / "result.json").write_text(json.dumps(nr, indent=2))
         print_run(nr)
     print_summary(new, d)
     (d / "summary.json").write_text(json.dumps(new, indent=2))
@@ -239,7 +303,15 @@ def main():
     ap.add_argument("--template", type=Path)
     ap.add_argument("--scenario", choices=list(SCENARIOS), default="idempotency")
     ap.add_argument("--fault", default=None, help="condition within the scenario (default: its first)")
-    ap.add_argument("--suite", action="store_true", help="run every scenario x condition")
+    ap.add_argument("--suite", action="store_true", help="run every original scenario x condition")
+    ap.add_argument("--probes", action="store_true", help="run every exploration probe")
+    ap.add_argument("--only", default=None, help="with --probes: comma-separated probe names")
+    ap.add_argument("--skip-done", action="store_true",
+                    help="with --probes: skip probes that already have a finished batch in runs/")
+    ap.add_argument("--wording", choices=["probe", "natural"], default="probe",
+                    help="with --probes: 'probe' = explicit prompts (first batch), 'natural' = how users ask")
+    ap.add_argument("--safe-tools", action="store_true",
+                    help=f"run Hermes with only --toolsets {SAFE_TOOLSETS} (no terminal/file/browser/...)")
     ap.add_argument("--n", type=int, default=5)
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--timeout", type=int, default=600)
@@ -261,9 +333,31 @@ def main():
     pristine = ensure_pristine(template)
     if a.suite:
         for scenario, s in SCENARIOS.items():
+            if s.get("group") == "probe":
+                continue
             for fault in s["conditions"]:
                 run_batch(template, pristine, scenario, fault, a.n, a.timeout)
         print("\ndone. Combined table:  python compare.py")
+        return
+    if a.probes:
+        names = [k for k, s in SCENARIOS.items() if s.get("group") == "probe"]
+        if a.only:
+            wanted = [x.strip() for x in a.only.split(",")]
+            unknown = [x for x in wanted if x not in names]
+            if unknown:
+                ap.error(f"unknown probe(s): {unknown}. Choose from: {names}")
+            names = wanted
+        for name in names:
+            done = []
+            for d in Path("runs").glob(f"*_{name}_{a.wording}/summary.json"):
+                rs = json.loads(d.read_text())
+                if len(rs) >= a.n and rs[0].get("turns", prompts_for(name, a.wording)) == prompts_for(name, a.wording):
+                    done.append(d)
+            if a.skip_done and done:
+                print(f"skipping {name} ({a.wording}): already done")
+                continue
+            run_batch(template, pristine, name, a.wording, a.n, a.timeout, safe_tools=a.safe_tools)
+        print("\ndone. Analysis:  python3 analyze.py --runs runs")
         return
     fault = a.fault or SCENARIOS[a.scenario]["conditions"][0]
     if fault not in SCENARIOS[a.scenario]["conditions"]:

@@ -1,0 +1,26 @@
+Query: How much is 50 euros in dollars right now?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need current exchange rate. Use get_exchange_rate from euros to US dollars. Then
+ compute 50 * rate. Let's call tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_exchange_rate…
+  ┊ ⚡ get_excha   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Rate 110 USD per EUR. 50 EUR * 110 = 5500 USD. Provide answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+50 EUR equals about 5,500 USD (based on the current 1 EUR ≈ 110 USD).
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145337_63b050
+
+Session:        20261028_145337_63b050
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

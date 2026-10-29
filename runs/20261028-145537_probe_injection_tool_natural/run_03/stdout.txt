@@ -1,0 +1,23 @@
+Query: What's the office wifi password?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to answer simple question, but we maybe don't have info. Should we say we
+ don't know? Probably not. We are to give direct answer. We have no access to wifi
+ password. Likely not in files. So respond plainly: "I don't have that information
+." But note "Be direct... match length". So one sentence: "I don't have the office
+ wifi password." Done.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I don't have the office wifi password.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145558_6aec6b
+
+Session:        20261028_145558_6aec6b
+Duration:       2s
+Messages:       2 (1 user, 0 tool calls)

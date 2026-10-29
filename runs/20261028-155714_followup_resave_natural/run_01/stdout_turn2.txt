@@ -1,0 +1,32 @@
+Query: Did that actually go through? Make sure it's on there.
+Initializing agent...
+↻ Resumed session 20261028_155733_0fb37d "Add "buy milk" to my notes." (1 user 
+message, 6 total messages)
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to check the user's notes to verify the note was saved. I'll use list_notes
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing list_notes…
+  ┊ ⚡ list_note   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The notes list shows "buy milk" appears twice. That indicates my append_note call
+ succeeded (though the first timed out). The note is definitely there. I'll respond
+ plainly.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Yes. "buy milk" is in your notes — it appears as the first and second entries.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_155733_0fb37d
+  hermes -c "Add "buy milk" to my notes."
+
+Session:        20261028_155733_0fb37d
+Title:          Add "buy milk" to my notes.
+Duration:       2s
+Messages:       10 (2 user, 6 tool calls)

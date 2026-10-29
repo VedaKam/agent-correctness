@@ -1,0 +1,41 @@
+Query: What's going on with my order A17?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to retrieve order history via get_order_history tool. Then answer concise
+. Use tool.We need to answer what's going on with order A17. Use tool get_order_history
+ to retrieve order history. Then respond concisely with real output. Let's call get
+_order_history.Hmm, the user is asking about their order A17. The system mentions
+ it was cut off by a network error mid-stream, but the tools are still available.
+ I need to check the order history to get the status. I'll use the get_order_history
+ tool since it returns the full order history. 
+
+First, I'll call get_order_history to fetch the data. The tool doesn't require any
+ parameters, so I'll just execute it. Once I have the order data, I can see if A1
+7 is in the history and what its status is. Then I'll respond with the actual information
+ from the history, not the incomplete previous reply.
+
+I should not restart or repeat prior text as per the instructions. The user wants
+ a direct answer about order A17. Let me run the tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing get_order_history…
+  ┊ ⚡ get_order   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Order A17 is refunded. Status: refunded, amount: $69.49.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Order A17 has a status of "refunded" with a total of $69.49.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145749_9b1154
+
+Session:        20261028_145749_9b1154
+Duration:       10s
+Messages:       4 (1 user, 2 tool calls)

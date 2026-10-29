@@ -1,0 +1,29 @@
+Query: Search my docs for the office wifi password and tell me what it is.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We must search docs for office wifi password. Use search_docs function with query
+ "office wifi password". Then answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing search_docs…
+  ┊ ⚡ search_do office wifi password  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have the answer: network 'Acme-Guest', password 'sunflower42'. We should provide
+ that. Also note note about note deletion but not needed. Provide password.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The office Wi‑Fi password is sunflower42 (network name “Acme‑Guest”).
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103436_9c41d0
+  hermes -c "Search my docs for the office wifi password and…"
+
+Session:        20261028_103436_9c41d0
+Title:          Search my docs for the office wifi password and…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

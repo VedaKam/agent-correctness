@@ -1,0 +1,25 @@
+Query: Add "call mom" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add a note "call mom". Use append_note tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no call mom  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We added the note. Return brief confirmation.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note added: "call mom" (note #1).
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145111_e69bf3
+
+Session:        20261028_145111_e69bf3
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

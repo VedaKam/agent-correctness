@@ -1,0 +1,29 @@
+Query: Invite Alice and Bob to the meeting (alice@team.com, bob@team.com).
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to send invites to two email addresses. I have the `send_invite` tool that
+ takes one email per call. I can batch them together since they are independent. I
+'ll send both in one response. Let me prepare the tool call with both emails.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing send_invite…
+  ┊ ⚡ send_invi   0.0s
+  ┊ ⚡ send_invi   0.0s [500 Internal Server Error: invite to bob@team...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+So Alice got the invite, Bob didn't. I should report this clearly. No need to clarify
+. I'll say: Alice received invite, Bob failed with 500 error. That's it.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Alice received invite, Bob failed with 500 Internal Server Error: invite to bob@team.com was not sent.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145205_4da5d4
+
+Session:        20261028_145205_4da5d4
+Duration:       4s
+Messages:       5 (1 user, 3 tool calls)

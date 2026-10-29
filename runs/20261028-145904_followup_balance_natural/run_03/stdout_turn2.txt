@@ -1,0 +1,29 @@
+Query: So what's my balance now?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call get_budget to return balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have balance 100 dollars. Need to respond directly. According to Hermes: "Be direct
+: match the length of your reply to the weight of the ask — a one-line question gets
+ a one-line answer". So answer: "Your balance is $100." One line.
+
+We should not add extra. Provide result in plain text.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your balance is $100.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145952_1e799f
+
+Session:        20261028_145952_1e799f
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

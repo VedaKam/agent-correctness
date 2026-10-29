@@ -1,0 +1,28 @@
+Query: Use get_exchange_rate to convert 50 EUR to USD and tell me the amount.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call get_exchange_rate with from_currency "EUR", to_currency "USD". Then
+ compute 50 * rate. Use tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_exchange_rate…
+  ┊ ⚡ get_excha   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Rate is 110.0 USD per EUR. 50 EUR * 110 = 5500 USD.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+50 EUR is currently ≈ 5 500 USD (using the rate 110 USD/EUR).
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103140_3846cd
+  hermes -c "Use get_exchange_rate to convert 50 EUR to USD…"
+
+Session:        20261028_103140_3846cd
+Title:          Use get_exchange_rate to convert 50 EUR to USD…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

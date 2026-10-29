@@ -1,0 +1,35 @@
+Query: Email my manager at sam@company.com saying I'll be 15 minutes late today.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to send email to sam@company.com with message that user will be 15 minutes
+ late. Use send_email tool.
+
+Probably need subject and body. Provide body: "I will be 15 minutes late today."
+
+Tool requires to, subject, body. Provide to=sam@company.com, subject maybe "Late today
+:", body "I will be 15 minutes late today.". Use send_email.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing send_email…
+  ┊ ⚡ send_emai   0.0s [403 Forbidden: this account is not authorized...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The system says cannot send email: account not authorized. We cannot send email. Perhaps
+ need user to provide credentials or use a different email service. But we must respond
+ directly: the email could not be sent. Probably just inform user.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I tried to send the email to sam@company.com, but it returned a 403 Forbidden error — this account isn’t authorized to send email through this tool. I can’t automatically forward a message for you; you’ll need to send it manually (e.g., via your email client) or supply credentials for a mailing service I’m permitted to use.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102716_bd5c4c
+  hermes -c "Email my manager at sam@company.com saying I'll…"
+
+Session:        20261028_102716_bd5c4c
+Title:          Email my manager at sam@company.com saying I'll…
+Duration:       17s
+Messages:       4 (1 user, 2 tool calls)

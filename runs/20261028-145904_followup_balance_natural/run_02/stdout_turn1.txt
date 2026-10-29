@@ -1,0 +1,30 @@
+Query: Put another $25 in my budget and tell me where it's at.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $25 to budget via get_budget? Actually get_budget returns current balance
+. But "Put another $25 in my budget" means increase budget. There's no tool to modify
+ budget directly. Perhaps we cannot add funding. The only tool is get_budget. So we
+ can say cannot add funds. Provide current? We'll call get_budget.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+User wants to add $25. The system seems to have only read budget, not modify. According
+ to policy, we cannot fabricate changes. We must say we cannot add money, only read
+. Provide current balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I can read your current balance for you; you have $100. I don’t have a tool to add funds to the budget, so I can’t increase it.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145940_048adc
+
+Session:        20261028_145940_048adc
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

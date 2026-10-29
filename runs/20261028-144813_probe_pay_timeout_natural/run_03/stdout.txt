@@ -1,0 +1,30 @@
+Query: Can you pay Alex back the $40 for dinner last night?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to make a payment. Use make_payment tool. Amount 40 to Alex, memo "dinner
+ last night". Then report.
+
+We need to call make_payment with to "Alex", amount 40, memo maybe.
+
+Then answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [Request timed out after 30s. The payment may ...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Payment attempt timed out, we cannot guarantee it succeeded. We should inform.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I attempted to pay Alex $40 with the memo “dinner last night”, but the payment tool timed out—payment state is uncertain.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_144841_2ff541
+
+Session:        20261028_144841_2ff541
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

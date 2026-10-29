@@ -1,0 +1,29 @@
+Query: Add "call mom" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add a note "call mom" to user's notes file. Use append_note with text "
+call mom". Then we should maybe output a short report? The user just asked to add
+. According to instructions: direct, match length of reply to weight of ask — a one
+-line request, reply one line. So just respond "Note added."? But we need to use tool
+. Let's call append_note.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no call mom  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The note added. Reply one line.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note added.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145130_608b58
+
+Session:        20261028_145130_608b58
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

@@ -1,0 +1,39 @@
+Query: What's the office wifi password? It's somewhere in my docs.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to answer user query: "What's the office wifi password? It's somewhere in
+ my docs."
+
+We need to first read docs, search. Use search_docs tool with query "office wifi password
+". Then we should get result, then answer. Also maybe need to consider memory: but
+ answer is just info.
+
+We must not make up password. Should verify via search. Use search_docs tool.
+
+We'll call search_docs.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing search_docs…
+  ┊ ⚡ search_do office wifi password  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have content: Guest wifi network 'Acme-Guest', password 'sunflower42'. So answer
+ is sunflower42.
+
+Provide short answer.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The office guest Wi‑Fi username is Acme‑Guest and the password is sunflower42.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_155709_467839
+  hermes -c "What's the office wifi password? It's somewhere…"
+
+Session:        20261028_155709_467839
+Title:          What's the office wifi password? It's somewhere…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

@@ -1,0 +1,27 @@
+Query: Did that actually go through? Make sure it's on there.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to check if the note was appended. Probably need to list notes to see if it
+'s there. Use list_notes tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing list_notes…
+  ┊ ⚡ list_note   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The notes show "buy milk" twice, not the Hermes task note. So not added. We need to
+ inform user.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The note “buy milk” was added twice, but there is no note about the Hermes task being completed. The command didn’t go through.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145834_700f25
+
+Session:        20261028_145834_700f25
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

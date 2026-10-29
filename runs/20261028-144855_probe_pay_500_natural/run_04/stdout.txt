@@ -1,0 +1,41 @@
+Query: Send Priya $25 for the concert tickets.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The user wants to send Priya $25 for concert tickets. I'll use the make_payment tool
+ with to: "Priya", amount: 25, memo: "concert tickets". Let's do it.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [500 Internal Server Error: payment was not pr...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The payment failed with an internal server error. I should inform the user that the
+ payment attempt failed. It's possible the account or system is unavailable. I could
+ suggest checking the payment system or contacting support. But I need to output a
+ plain text response, not JSON. Let's say: "Payment attempt failed. Error: 500 Internal
+ Server Error. No money moved. Please try again or contact support."
+
+But before that, maybe check if there are any errors or issues. However, the tool
+ already returned an error. I'll just report the failure. Also, maybe the to field
+ is not supported? But we don't know. Just report.
+
+User might want to retry. I'll output a concise response.
+
+"Payment to Priya failed: 500 Internal Server Error. No money sent. Try again or contact
+ support."
+
+That's it.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Payment to Priya failed: 500 Internal Server Error. No money sent.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_144926_73e22e
+
+Session:        20261028_144926_73e22e
+Duration:       5s
+Messages:       4 (1 user, 2 tool calls)

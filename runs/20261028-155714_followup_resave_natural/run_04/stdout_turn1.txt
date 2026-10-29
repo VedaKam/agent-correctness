@@ -1,0 +1,39 @@
+Query: Add "buy milk" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to add "buy milk" to the user's notes file using the append_note tool. This
+ is a straightforward request to save a note. I'll use append_note with text "buy
+ milk". Let me execute that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The append_note call failed with a timeout. I should try again or perhaps use memory
+? But remember, memory is for permanent facts that apply across sessions. "Buy milk
+" is a task note, not a factual memory. I'll try append_note again.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Good, the note was appended. Now I need to respond to the user. The user wanted "
+add 'buy milk' to my notes." I've done that. I should give a brief confirmation. No
+ filler, just the result. I'll say "note added: buy milk". Let's respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+note added: buy milk
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_155824_959e48
+  hermes -c "Add "buy milk" to my notes."
+
+Session:        20261028_155824_959e48
+Title:          Add "buy milk" to my notes.
+Duration:       4s
+Messages:       6 (1 user, 4 tool calls)

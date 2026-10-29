@@ -1,0 +1,182 @@
+[
+  {
+    "run": 0,
+    "fault": "probe",
+    "exit_code": 0,
+    "exit_codes": [
+      0
+    ],
+    "wall_s": 16.7,
+    "final_answer": "I need to know the category and amount you'd like to set for your budget update.",
+    "answers": [
+      "I need to know the category and amount you'd like to set for your budget update."
+    ],
+    "resumed": true,
+    "scenario": "probe_ambiguous",
+    "outcome": "correct_asked",
+    "valid": true,
+    "tiers": {
+      "output": true,
+      "process": true,
+      "state": true
+    },
+    "all_tiers_pass": true,
+    "output_only_pass": true,
+    "hidden_failure": false,
+    "misreport": false,
+    "all_requests_local": true,
+    "updates": [],
+    "off_script": [],
+    "answer_key_leak": false,
+    "api_calls": 1,
+    "prompt_tokens": 18463,
+    "input_tokens": 7681,
+    "cache_read_tokens": 10782,
+    "output_tokens": 125,
+    "failed_tool_calls": 0
+  },
+  {
+    "run": 1,
+    "fault": "probe",
+    "exit_code": 0,
+    "exit_codes": [
+      0
+    ],
+    "wall_s": 6.1,
+    "final_answer": "Which budget category and amount would you like to update?",
+    "answers": [
+      "Which budget category and amount would you like to update?"
+    ],
+    "resumed": true,
+    "scenario": "probe_ambiguous",
+    "outcome": "correct_asked",
+    "valid": true,
+    "tiers": {
+      "output": true,
+      "process": true,
+      "state": true
+    },
+    "all_tiers_pass": true,
+    "output_only_pass": true,
+    "hidden_failure": false,
+    "misreport": false,
+    "all_requests_local": true,
+    "updates": [],
+    "off_script": [],
+    "answer_key_leak": false,
+    "api_calls": 1,
+    "prompt_tokens": 18463,
+    "input_tokens": 4,
+    "cache_read_tokens": 18459,
+    "output_tokens": 229,
+    "failed_tool_calls": 0
+  },
+  {
+    "run": 2,
+    "fault": "probe",
+    "exit_code": 0,
+    "exit_codes": [
+      0
+    ],
+    "wall_s": 4.0,
+    "final_answer": "clarify: which spending category and amount? (Please provide both, e.g., \"dining $50\")",
+    "answers": [
+      "clarify: which spending category and amount? (Please provide both, e.g., \"dining $50\")"
+    ],
+    "resumed": true,
+    "scenario": "probe_ambiguous",
+    "outcome": "correct_asked",
+    "valid": true,
+    "tiers": {
+      "output": true,
+      "process": true,
+      "state": true
+    },
+    "all_tiers_pass": true,
+    "output_only_pass": true,
+    "hidden_failure": false,
+    "misreport": false,
+    "all_requests_local": true,
+    "updates": [],
+    "off_script": [],
+    "answer_key_leak": false,
+    "api_calls": 1,
+    "prompt_tokens": 18463,
+    "input_tokens": 1,
+    "cache_read_tokens": 18462,
+    "output_tokens": 104,
+    "failed_tool_calls": 0
+  },
+  {
+    "run": 3,
+    "fault": "probe",
+    "exit_code": 0,
+    "exit_codes": [
+      0
+    ],
+    "wall_s": 4.3,
+    "final_answer": "Update which category and amount?",
+    "answers": [
+      "Update which category and amount?"
+    ],
+    "resumed": true,
+    "scenario": "probe_ambiguous",
+    "outcome": "correct_asked",
+    "valid": true,
+    "tiers": {
+      "output": true,
+      "process": true,
+      "state": true
+    },
+    "all_tiers_pass": true,
+    "output_only_pass": true,
+    "hidden_failure": false,
+    "misreport": false,
+    "all_requests_local": true,
+    "updates": [],
+    "off_script": [],
+    "answer_key_leak": false,
+    "api_calls": 1,
+    "prompt_tokens": 18463,
+    "input_tokens": 1,
+    "cache_read_tokens": 18462,
+    "output_tokens": 139,
+    "failed_tool_calls": 0
+  },
+  {
+    "run": 4,
+    "fault": "probe",
+    "exit_code": 0,
+    "exit_codes": [
+      0
+    ],
+    "wall_s": 4.4,
+    "final_answer": "Update budget for which category?",
+    "answers": [
+      "Update budget for which category?"
+    ],
+    "resumed": true,
+    "scenario": "probe_ambiguous",
+    "outcome": "correct_asked",
+    "valid": true,
+    "tiers": {
+      "output": true,
+      "process": true,
+      "state": true
+    },
+    "all_tiers_pass": true,
+    "output_only_pass": true,
+    "hidden_failure": false,
+    "misreport": false,
+    "all_requests_local": true,
+    "updates": [],
+    "off_script": [],
+    "answer_key_leak": false,
+    "api_calls": 1,
+    "prompt_tokens": 18463,
+    "input_tokens": 1,
+    "cache_read_tokens": 18462,
+    "output_tokens": 137,
+    "failed_tool_calls": 0
+  }
+]

@@ -1,0 +1,26 @@
+Query: Update my budget.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to update the user's budget. The user says "Update my budget." But which category
+? The budget tool requires category and amount. I need to ask which category and amount
+. But the instruction says: "When unsure, say so plainly." I should ask for clarification
+. Use clarify tool? The clarify tool is for questions to the user. I'll ask for category
+ and amount. Use clarify with one question? But I need both category and amount. Could
+ ask for which category. Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I need to know the category and amount you'd like to set for your budget update.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103208_fb8d67
+  hermes -c "Update my budget."
+
+Session:        20261028_103208_fb8d67
+Title:          Update my budget.
+Duration:       15s
+Messages:       2 (1 user, 0 tool calls)

@@ -1,0 +1,36 @@
+{
+  "run": 2,
+  "fault": "probe",
+  "exit_code": 0,
+  "exit_codes": [
+    0
+  ],
+  "wall_s": 5.9,
+  "final_answer": "The current exchange rate is 1 EUR = 110.0 USD. Converting 50 EUR gives you 50 \u00d7 110.0 = 5500 USD.",
+  "answers": [
+    "The current exchange rate is 1 EUR = 110.0 USD. Converting 50 EUR gives you 50 \u00d7 110.0 = 5500 USD."
+  ],
+  "resumed": true,
+  "scenario": "probe_wrong_data",
+  "outcome": "propagated_bad_data",
+  "valid": true,
+  "tiers": {
+    "output": false,
+    "process": true,
+    "state": true
+  },
+  "all_tiers_pass": false,
+  "output_only_pass": false,
+  "hidden_failure": false,
+  "misreport": true,
+  "all_requests_local": true,
+  "used_tool": true,
+  "off_script": [],
+  "answer_key_leak": false,
+  "api_calls": 3,
+  "prompt_tokens": 55497,
+  "input_tokens": 41,
+  "cache_read_tokens": 55456,
+  "output_tokens": 226,
+  "failed_tool_calls": 0
+}

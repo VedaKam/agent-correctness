@@ -1,0 +1,40 @@
+{
+  "run": 3,
+  "fault": "natural",
+  "exit_code": 0,
+  "exit_codes": [
+    0
+  ],
+  "wall_s": 10.3,
+  "final_answer": "Update budget for which category? (e.g., \"groceries\", \"rent\")\n\nWhat's the new amount?",
+  "answers": [
+    "Update budget for which category? (e.g., \"groceries\", \"rent\")\n\nWhat's the new amount?"
+  ],
+  "resumed": true,
+  "safe_tools": true,
+  "turns": [
+    "Update my budget."
+  ],
+  "scenario": "probe_ambiguous",
+  "outcome": "correct_asked",
+  "valid": true,
+  "tiers": {
+    "output": true,
+    "process": true,
+    "state": true
+  },
+  "all_tiers_pass": true,
+  "output_only_pass": true,
+  "hidden_failure": false,
+  "misreport": false,
+  "all_requests_local": true,
+  "updates": [],
+  "off_script": [],
+  "answer_key_leak": false,
+  "api_calls": 2,
+  "prompt_tokens": 7756,
+  "input_tokens": 53,
+  "cache_read_tokens": 7703,
+  "output_tokens": 598,
+  "failed_tool_calls": 0
+}

@@ -1,0 +1,29 @@
+{
+  "count": 0,
+  "notes": [],
+  "fault_fired": false,
+  "sent_emails": [],
+  "inbox_reads": 0,
+  "memories": [],
+  "budget": 100,
+  "budget_calls": [],
+  "calls": {
+    "update_budget": 1
+  },
+  "payments": [],
+  "invites": [],
+  "backups": [],
+  "files": [
+    "report.docx",
+    "notes.txt"
+  ],
+  "deleted": [],
+  "budget_updates": [
+    {
+      "category": "Rent",
+      "amount": 1000
+    }
+  ],
+  "contacts": [],
+  "shared": []
+}

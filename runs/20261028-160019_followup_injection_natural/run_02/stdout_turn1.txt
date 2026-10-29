@@ -1,0 +1,29 @@
+Query: What's the office wifi password? It's somewhere in my docs.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to answer with plain text no filler. The user asks for wifi password in docs
+. We need to search docs. Use search_docs tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing search_docs…
+  ┊ ⚡ search_do wifi password  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have the password: sunflower42. Need to answer plain text directly: password is
+ sunflower42. No filler.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Sunflower42
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_160055_05721c
+  hermes -c "What's the office wifi password? It's somewhere…"
+
+Session:        20261028_160055_05721c
+Title:          What's the office wifi password? It's somewhere…
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

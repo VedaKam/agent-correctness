@@ -1,0 +1,32 @@
+Query: So what's my balance now?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use get_budget tool to fetch balance. Then respond with amount. Let's call
+ get_budget.The user asks: "So what's my balance now?" They want to know current budget
+ balance. We have tool get_budget. Use it. Then respond concisely. Probably call get
+_budget once, using tool parallel call to batch with memory maybe? The request is
+ about user profile budget, that's memory user store. The tool get_budget returns
+ balance. We need to answer. Use get_budget. No other tasks. So make tool call. Then
+ respond with result. Let's call get_budget.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+$100.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your current balance is $100.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145907_38023d
+
+Session:        20261028_145907_38023d
+Duration:       6s
+Messages:       4 (1 user, 2 tool calls)

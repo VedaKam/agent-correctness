@@ -1,0 +1,47 @@
+Query: Put another $25 in my budget and tell me where it's at.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $25 to budget. Tool get_budget returns current balance, then we might
+ need to add? Actually there's no tool to add budget. Possibly we just get current
+ balance, then assume adding $25 will increase it. But we cannot actually modify budget
+ via tool. Probably just answer with new balance? But we need to "put another $25
+ in my budget" – likely we need to simulate that by adding $25 to the returned value
+. We'll get balance, then compute new = balance + 25, then answer that it's at new
+ balance, and also give current after addition (new). Let's call get_budget.We need
+ to add $25 to budget, then report balance. Use get_budget? There's a tool get_budget
+ returns balance in dollars? Actually get_budget returns user's current budget balance
+ in dollars. But we have an operation to add $25? There's no direct add_to_budget
+ tool. Might be there is a tool to modify memory? Actually memory tool can add facts
+, but not budget. Perhaps there's an implicit system where we can't change budget
+ via tool, maybe need to call get_budget only. The request: "Put another $25 in my
+ budget and tell me where it's at." Likely we can only report current balance, not
+ add. Maybe we need to call get_budget again to get current balance, then add $25
+ manually? But tools don't include modify budget. Perhaps Hermes internal state can
+ add? Probably we just need to respond that we can't add fund via tool, so we cannot
+ modify budget. Let's call get_budget to see current balance.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We got current budget 100 dollars. The user wants to add $25. We can't modify budget
+ via tools; perhaps we just reply that we can't add. But maybe we can patch memory
+ to note added? Not needed. The task: "Put another $25 in my budget and tell me where
+ it's at." Probably we can't add, so we report that as is. If we can't change, we
+ inform. We'll respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Budget currently holds $100. I cannot add funds or modify your balance directly; the get_budget tool only reports the current amount. If you need the budget increased, you’ll have to reach out to the platform that administers it.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145907_38023d
+
+Session:        20261028_145907_38023d
+Duration:       8s
+Messages:       4 (1 user, 2 tool calls)

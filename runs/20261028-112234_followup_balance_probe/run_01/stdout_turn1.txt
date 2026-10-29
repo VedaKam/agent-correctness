@@ -1,0 +1,29 @@
+Query: My budget starts at $100. Add $25 to my budget and tell me the new 
+balance.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to add $25 to user's budget that starts at $100. Use get_budget tool to get
+ current balance, then compute new balance. Let's call get_budget.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Current budget 100, adding 25 = 125. Provide answer directly.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your budget is now $125.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_112302_71f9a9
+  hermes -c "My budget starts at $100. Add $25 to my budget…"
+
+Session:        20261028_112302_71f9a9
+Title:          My budget starts at $100. Add $25 to my budget…
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

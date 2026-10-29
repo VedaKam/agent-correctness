@@ -1,0 +1,34 @@
+Query: Add "buy milk" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use append_note with text "buy milk". Let's do that.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s [Request timed out after 30s waiting for the n...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The error indicates the notes service timed out. We may try again? Possibly note not
+ saved. Use append_note again.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no buy milk  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Now we can say note saved. Provide concise reply.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note "buy milk" saved.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_155733_0fb37d
+  hermes -c "Add "buy milk" to my notes."
+
+Session:        20261028_155733_0fb37d
+Title:          Add "buy milk" to my notes.
+Duration:       2s
+Messages:       6 (1 user, 4 tool calls)

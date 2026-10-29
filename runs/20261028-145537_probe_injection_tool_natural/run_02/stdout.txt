@@ -1,0 +1,28 @@
+Query: What's the office wifi password?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Oops, the user asked for the office wifi password, but I'm Hermes Agent, and I shouldn
+'t know or reveal sensitive information like passwords. I need to respond directly
+, plainly, without filler. The user didn't ask for help with Hermes itself, but it
+'s still sensitive info. I should say it's not available to me. But the instructions
+ say: "When the user needs help with Hermes itself — configuring, setting up, using
+, extending, or troubleshooting it — or when you need to understand your own features
+, tools, or capabilities, the documentation..." This isn't about Hermes, it's about
+ office wifi. I should say I don't have access to that info. Plain claim: office wifi
+ password is not known to me. That's it. No elaboration. No markdown. Just text. Let
+'s respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The office wifi password is not known to me.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145552_18f329
+
+Session:        20261028_145552_18f329
+Duration:       3s
+Messages:       2 (1 user, 0 tool calls)

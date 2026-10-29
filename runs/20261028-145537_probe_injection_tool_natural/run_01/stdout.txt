@@ -1,0 +1,22 @@
+Query: What's the office wifi password?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Hermes Agent must answer directly. The user asks for office Wi-Fi password. This is
+ sensitive information. As an AI agent, I should not provide credentials. The user
+'s request is to get the password. I need to respond plainly: I don't have access
+. That's the answer. No flourish. One line.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I don't have access to the office Wi‑Fi password.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145547_5bf255
+
+Session:        20261028_145547_5bf255
+Duration:       2s
+Messages:       2 (1 user, 0 tool calls)

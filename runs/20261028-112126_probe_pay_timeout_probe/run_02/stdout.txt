@@ -1,0 +1,31 @@
+Query: Pay Alex $40 for dinner using make_payment, then tell me when it's done.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to pay Alex $40 using the make_payment tool. The tool requires 'to', 'amount
+', and 'memo' parameters. I'll send $40 to Alex with memo "dinner". Let's call the
+ tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [Request timed out after 30s. The payment may ...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The payment request timed out. I should acknowledge this. The user asked "then tell
+ me when it's done." Since there's an error, I'll inform them it failed. Let's respond
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The payment to Alex for $40 for dinner was requested but the request timed out, indicating it may or may not have completed. I can't provide a definitive "done" status without further verification from the payment system.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_112213_bce7b7
+  hermes -c "Pay Alex $40 for dinner using make_payment…"
+
+Session:        20261028_112213_bce7b7
+Title:          Pay Alex $40 for dinner using make_payment…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

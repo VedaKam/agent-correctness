@@ -1,0 +1,31 @@
+Query: Add "call mom" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to write a note "call mom". Use append_note.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing append_note…
+  ┊ ⚡ append_no call mom  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We appended a note. Provide concise reply.The user wants "call mom" added to their
+ notes. I already called append_note with that text. The result was {"ok": true, "
+note_number": 1}. That means the note was added successfully. The user also says "
+You just executed tool calls but returned an empty response. Please process the tool
+ results above and continue with the task." The response from the tool is not empty
+; it's a JSON object indicating success. I should confirm the addition is complete
+. The task is done: note added. I'll respond briefly: "Note added."
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Note added
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145124_0f905e
+
+Session:        20261028_145124_0f905e
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)

@@ -1,0 +1,12 @@
+⚠ Session store unavailable — this conversation will NOT be saved and cannot be 
+resumed later. Searching past sessions is also disabled.
+  Reason: another Hermes process still holds an old copy of the session 
+database's write-ahead log, so Hermes stopped writing to keep the file safe.
+  Nothing is lost. Quit every Hermes process on this profile (Desktop app, 
+`hermes gateway stop`, dashboard, cron), run `hermes doctor` — it names any 
+process still holding the log — then start Hermes again. Do not run `doctor 
+--fix` or delete any state.db files while they run. Guide: 
+https://hermes-agent.nousresearch.com/docs/user-guide/session-storage-recovery
+  Details: FATAL: session storage stopped writing because another Hermes process
+still holds a deleted state.db-wal or state.db-shm inode (an old copy of the 
+write-ahead log). Nothing is lost: quit every Herm...

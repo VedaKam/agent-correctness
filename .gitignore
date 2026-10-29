@@ -16,3 +16,8 @@ eval_state.json
 eval_trace.jsonl
 *.tmp
 .DS_Store
+
+hermes_run/
+hermes_run_pristine/
+runs_probes.zip
+analysis.md

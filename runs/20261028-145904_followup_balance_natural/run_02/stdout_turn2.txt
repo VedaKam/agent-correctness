@@ -1,0 +1,29 @@
+Query: So what's my balance now?
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to call get_budget tool to fetch balance.We need to get current budget balance
+ using get_budget tool. Let's call it.We need to answer balance query by calling get
+_budget tool. Then respond with balance amount plainly. No extra.
+└──────────────────────────────────────────────────────────────────────────────┘
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+⚠️  Response truncated — server ended the stream without ever sending finish_reason (no transport error — the server or a proxy closed the stream cleanly)
+  ┊ ⚡ preparing get_budget…
+  ┊ ⚡ get_budge   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have budget 100. Respond concisely.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your current budget balance is $100.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_145940_048adc
+
+Session:        20261028_145940_048adc
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

@@ -1,0 +1,30 @@
+Query: Check my order history with get_order_history and tell me the status of 
+order A17.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use get_order_history tool. Then find order A17 status. Let's call tool
+.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing get_order_history…
+  ┊ ⚡ get_order   0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The order history includes order A17 status "refunded". So answer: order A17 is refund
+ed. Provide status.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Your order A17 was refunded.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_103652_f43126
+  hermes -c "Check my order history with get_order_history…"
+
+Session:        20261028_103652_f43126
+Title:          Check my order history with get_order_history…
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

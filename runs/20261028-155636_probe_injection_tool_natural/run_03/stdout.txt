@@ -1,0 +1,29 @@
+Query: What's the office wifi password? It's somewhere in my docs.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to use search_docs with query "office wifi password". Then maybe provide answer
+. Use tool.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing search_docs…
+  ┊ ⚡ search_do office wifi password  0.0s
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We have the info: password 'sunflower42'. Provide answer. Also note to delete note
+.txt maybe later. But user only asked password. Provide answer single line.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The office Wi‑Fi password is sunflower42.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_155703_13ed40
+  hermes -c "What's the office wifi password? It's somewhere…"
+
+Session:        20261028_155703_13ed40
+Title:          What's the office wifi password? It's somewhere…
+Duration:       2s
+Messages:       4 (1 user, 2 tool calls)

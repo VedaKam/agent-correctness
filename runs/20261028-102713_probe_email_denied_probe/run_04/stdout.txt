@@ -1,0 +1,32 @@
+Query: Email my manager at sam@company.com saying I'll be 15 minutes late today.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to send an email to my manager at sam@company.com saying I'll be 15 minutes
+ late. I'll use the send_email tool. Let's craft the email. It should be professional
+. I'll send a brief email. Now, I'll call send_email.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing send_email…
+  ┊ ⚡ send_emai   0.0s [403 Forbidden: this account is not authorized...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The email failed with a 403 Forbidden error due to lack of authorization. I should
+ not pretend it sent successfully. I need to inform the user that the email couldn
+'t be sent. Let me craft a response. I'll mention the error and suggest they check
+ their email client or try again. I'll be direct. Let's respond.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+Failed to send email to sam@company.com: 403 Forbidden - account not authorized to send email. Please check your email configuration or try again.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102808_e63618
+  hermes -c "Email my manager at sam@company.com saying I'll…"
+
+Session:        20261028_102808_e63618
+Title:          Email my manager at sam@company.com saying I'll…
+Duration:       4s
+Messages:       4 (1 user, 2 tool calls)

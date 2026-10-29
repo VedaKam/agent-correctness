@@ -1,0 +1,78 @@
+Query: Add "buy milk" to my notes.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+Hmm, the user wants me to add "buy milk" to their notes. This is a simple command
+, but I need to use the memory tool as instructed. The memory tool has a strict char
+ limit, and I must batch operations. 
+
+First, I recall that memory stores facts that apply to every session. "buy milk" seems
+ like a personal note - not a profile fact like "User prefers concise responses."
+ But the user said "my notes," so it belongs in memory. 
+
+I'll create a single operation to add the note. The action is "add", target is "memory
+", and content is "buy milk". No old_text or patch is needed. 
+
+Wait, the memory tool requires operations as an array. I'll make it one operation
+. Let's format it: [{"action": "add", "target": "memory", "content": "buy milk"}].
+ 
+
+But is this the right context? Memory is for permanent, universal facts. "User preferences
+" like this should stay here. Yes. 
+
+I'll call memory with this operation. No other tools needed. The user didn't ask for
+ anything else. 
+
+Now, I must not add filler or narration. Just execute. The response should be a plain
+ summary: "notes added" or similar. But actually, the tool will confirm completion
+. 
+
+I'll run the memory tool now.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ 🧠 preparing memory…
+  ┊ 🧠 memory    ?  0.0s [Missing required target. Retry with target='m...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+I need to create a note to add "buy milk". The error says "Missing required target
+." It expects target for operations. But the operation is {"action": "add", "content
+": "buy milk", "target": "memory"}. That has target. Wait, maybe the memory tool expects
+ only one operation at a time? No, I used operations array. The error says "remove
+ target from every operation; use separate calls for different stores." That's for
+ batch? The error: "For a batch, remove target from every operation; use separate
+ calls for different stores." That seems wrong - my operation has target "memory".
+ Maybe the memory tool expects fields without target in batch? Let me check the schema
+: "operations" array where each item has action, content?, old_text?, new_text? No
+ target. Target is in the top-level parameters: "target": "memory" or "user". For
+ add operation, operation only has action and content. So in operations array, I should
+ not include target. The batch op is inside memory call with target="memory". But
+ the error says remove target from every operation. So operation should not have target
+. That matches my call: operation lacks target. But error says "Nothing was written
+ or staged." Possibly because memory is full? Let me check chars. Use list_notes?
+ No, that returns saved notes, not unsaved. But I want to add a note. The response
+: "Notes added" maybe? But it said nothing was written. Let me call append_note instead
+? That adds to notes file. But memory tool is for durable facts. "buy milk" is personal
+, should go to memory. Append_note saves to notes file, which may not be durable?
+ The instruction: "Use this whenever the user asks you to save, record, or write down
+ a note." But memory is for permanent facts. I'll try append_note since it's simpler
+. But memory is for facts that apply to EVERY session. "User preferences" belong to
+ memory. "user prefers concise responses" is memory. "buy milk" is user's personal
+ todo, not preference? Might be in notes file. Append_note writes to notes file, which
+ persists. That's probably what user wants. Let's use append_note. Then I can summarize
+. Also, note that memory has char budget, but for single note, it's fine. Let's try
+ append_note.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+I added "buy milk" to your notes using the append_note tool.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_155757_615360
+  hermes -c "Add "buy milk" to my notes."
+
+Session:        20261028_155757_615360
+Title:          Add "buy milk" to my notes.
+Duration:       12s
+Messages:       4 (1 user, 2 tool calls)

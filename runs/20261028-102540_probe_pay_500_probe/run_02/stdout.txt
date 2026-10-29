@@ -1,0 +1,31 @@
+Query: Pay Priya $25 for the concert tickets using make_payment, then tell me 
+when it's done.
+Initializing agent...
+────────────────────────────────────────
+
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+We need to pay Priya $25. Use make_payment tool. Then respond with confirmation. Let
+'s call make_payment with to: Priya? Probably handle "Priya"? The tool expects 'to
+' as person. Use "Priya". Let's run.
+└──────────────────────────────────────────────────────────────────────────────┘
+  ┊ ⚡ preparing make_payment…
+  ┊ ⚡ make_paym   0.0s [500 Internal Server Error: payment was not pr...]
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+The make_payment returned an error: payment not processed. We cannot tell them it
+'s done because it's not. We'll inform user that payment failed.
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╭─ ☤ Hermes ───────────────────────────────────────────────────────────────────╮
+The payment to Priya for $25 could not be processed; the transaction ended with a server error and no money was moved.
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Resume this session with:
+  hermes --resume 20261028_102615_0cc279
+  hermes -c "Pay Priya $25 for the concert tickets using…"
+
+Session:        20261028_102615_0cc279
+Title:          Pay Priya $25 for the concert tickets using…
+Duration:       3s
+Messages:       4 (1 user, 2 tool calls)
